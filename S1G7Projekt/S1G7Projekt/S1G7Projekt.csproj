@@ -97,6 +97,7 @@
     </Compile>
     <Compile Include="Bruger.cs" />
     <Compile Include="FileHandler.cs" />
+    <Compile Include="Indkoebsliste.cs" />
     <Compile Include="Login.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
