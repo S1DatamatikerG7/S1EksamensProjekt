@@ -8,40 +8,36 @@ namespace S1G7Projekt
 {
     class TilmeldSpisning
     {
-        public int MaVoksen { get; set; }
-        public int TiVoksen { get; set; }
-        public int OnVoksen { get; set; }
-        public int ToVoksen { get; set; }
 
-        public int MaBorn7_15 { get; set; }
-        public int TiBorn7_15 { get; set; }
-        public int OnBorn7_15 { get; set; }
-        public int ToBorn7_15 { get; set; }
+        public String Dag { get; set; }
 
-        public int MaBorn3_6 { get; set; }
-        public int TiBorn3_6 { get; set; }
-        public int OnBorn3_6 { get; set; }
-        public int ToBorn3_6 { get; set; }
+        public String HusNr { get; set; }
 
-        public int MaBorn2_0 { get; set; }
-        public int TiBorn2_0 { get; set; }
-        public int OnBorn2_0 { get; set; }
-        public int ToBorn2_0 { get; set; }
+        public int AntalVoksne { get; set; }
+        public int AntalBorn7_15 { get; set; }
+        public int AntalBorn3_6 { get; set; }
+        public int AntalBornU3 { get; set; }
+
+
+        //public List<Bruger> BrugerListe;
 
         public TilmeldSpisning()
         {
-
+            //BrugerListe = FileHandler.getBrugerListe();
         }
 
         public void GemTilmelding()
         {
-            FileHandler.Tilmelding(MaVoksen, MaBorn7_15, MaBorn3_6, MaBorn2_0, TiVoksen, TiBorn7_15, TiBorn3_6, TiBorn2_0, OnVoksen, OnBorn7_15, OnBorn3_6, OnBorn2_0, ToVoksen, ToBorn7_15, ToBorn3_6, ToBorn2_0)
+            if (Dag != null)
+            {
+                if (HusNr != null)
+                {
+                    if (AntalVoksne != 0 || AntalBorn7_15 != 0 || AntalBorn3_6 != 0 || AntalBornU3 != 0)
+                    {
+                        FileHandler.Tilmelding(Dag, HusNr, AntalVoksne, AntalBorn7_15, AntalBorn3_6, AntalBornU3);
+                    }
+                }
+            }
         }
-
-
-
-
-
-
     }
 }
