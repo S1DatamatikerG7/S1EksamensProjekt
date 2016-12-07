@@ -40,14 +40,28 @@ namespace S1G7Projekt
         public void AddIngrediens()
         {
             switch (Dag)
-                
-            break;
-            Case
+            {
+                case "Mandag":
+                    //Do something
+                    break;
+                case "Tirsdag":
+                        //Do something
+                        break;
+                case "Onsdag":
+                        //Do something
+                        break;
+                case "Torsdag":
+                        //Do something
+                        break;
+            }
         }
 
         public void RemoveIngrediens()
         {
-            
+            switch ()
+            {
+                
+            }
         }
     }
 }
