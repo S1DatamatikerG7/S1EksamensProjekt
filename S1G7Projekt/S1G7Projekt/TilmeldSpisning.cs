@@ -23,7 +23,7 @@ namespace S1G7Projekt
 
         public TilmeldSpisning()
         {
-            //BrugerListe = FileHandler.getBrugerListe test
+            //BrugerListe = FileHandler.getBrugerListe
         }
 
         public void GemTilmelding()
