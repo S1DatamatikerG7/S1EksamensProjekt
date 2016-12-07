@@ -35,7 +35,7 @@ namespace S1G7Projekt
 
         public void GemTilmelding()
         {
-            Filhandler.Tilmelding(MaVoksen, MaBorn7_15, MaBorn3_6, MaBorn2_0, TiVoksen, TiBorn7_15, TiBorn3_6, TiBorn2_0, OnVoksen, OnBorn7_15, OnBorn3_6, OnBorn2_0, ToVoksen, ToBorn7_15, ToBorn3_6, ToBorn2_0)
+            FileHandler.Tilmelding(MaVoksen, MaBorn7_15, MaBorn3_6, MaBorn2_0, TiVoksen, TiBorn7_15, TiBorn3_6, TiBorn2_0, OnVoksen, OnBorn7_15, OnBorn3_6, OnBorn2_0, ToVoksen, ToBorn7_15, ToBorn3_6, ToBorn2_0)
         }
 
 
