@@ -12,7 +12,7 @@ namespace S1G7Projekt
         public int BrugerID { get; set; }
         public String HusNr { get; set; }
         public String Kodeord { get; set; }
-        public Dictionary<string, string> BrugerListe;
+        public List<Bruger> BrugerListe;
 
 
         public Bruger()
@@ -25,7 +25,7 @@ namespace S1G7Projekt
             BrugerID = brugerId;
             HusNr = husNr;
             Kodeord = kodeord;
-            BrugerListe = Filehandler.getBrugerListe();
+            BrugerListe = FileHandler.getBrugerListe();
         }
     }
 }
