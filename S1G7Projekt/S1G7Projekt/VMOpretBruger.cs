@@ -62,12 +62,15 @@ namespace S1G7Projekt
         public void OpretBruger()
         {
             ID += ID;
-            BrugerListe.Add(new Bruger(ID, BrugerNavn, KodeOrd));
+            if (BrugerNavn != null && KodeOrd != null)
+            {
+                BrugerListe.Add(new Bruger(ID, BrugerNavn, KodeOrd));
+            }   //TODO: ExceptionHandling og skrive til fil
         }
 
         public void FjernBruger()
         {
             BrugerListe.RemoveAt(ID);
-        }
+        }   //TODO: ExceptionHandling og skrive til fil
     }
 }
