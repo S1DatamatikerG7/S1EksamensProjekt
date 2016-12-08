@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace S1G7Projekt
 {
-    class TilmeldSpisning
+    class VMTilmeldSpisning
     {
 
         public String Dag { get; set; }
@@ -21,7 +21,7 @@ namespace S1G7Projekt
 
         //public List<Bruger> BrugerListe;
 
-        public TilmeldSpisning()
+        public VMTilmeldSpisning()
         {
             //BrugerListe = FileHandler.getBrugerListe
         }

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace S1G7Projekt
 {
-    class NaesteUge : INotifyPropertyChanged
+    class VMNaesteUgePlan : INotifyPropertyChanged
     {
         private ObservableCollection<Ret> _retJobBeskrivelser;
 
@@ -36,7 +36,7 @@ namespace S1G7Projekt
         public string Torsdag { get; set; }
         public int Uge { get; set; }
 
-        public NaesteUge()
+        public VMNaesteUgePlan()
         {
             _retJobBeskrivelser = new ObservableCollection<Ret>();
             Mandag = "Mandag";
