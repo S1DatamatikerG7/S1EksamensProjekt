@@ -100,9 +100,9 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="NaesteUge.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TilmeldSpisning.cs" />
+    <Compile Include="VMNaesteUgePlan.cs" />
+    <Compile Include="VMTilmeldSpisning.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">

@@ -36,7 +36,7 @@ namespace S1G7Projekt
         public string Torsdag { get; set; }
         public int Uge { get; set; }
 
-        public VMNaesteUgePlan()
+        public næsteuge()
         {
             _retJobBeskrivelser = new ObservableCollection<Ret>();
             Mandag = "Mandag";
