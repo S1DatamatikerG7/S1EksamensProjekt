@@ -6,15 +6,36 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using NoteModelOpg33;
 
 namespace S1G7Projekt
 {
     class VMOpretBruger : INotifyPropertyChanged
     {
+        private RelayCommand _relayCommandOpretBruger;
+        private RelayCommand _relayCommandFjernBruger;
+        private ObservableCollection<Bruger> _brugerListe;
         public string BrugerNavn { get; set; }
         public string KodeOrd { get; set; }
         public int ID { get; set; }
-        public ObservableCollection<Bruger> BrugerListe { get; set; }
+
+        public ObservableCollection<Bruger> BrugerListe
+        {
+            get { return _brugerListe; }
+            set { _brugerListe = value; }
+        }
+
+        public RelayCommand RelayCommandOpretBruger
+        {
+            get { return _relayCommandOpretBruger; }
+            set { _relayCommandOpretBruger = value; }
+        }
+
+        public RelayCommand RelayCommandFjernBruger
+        {
+            get { return _relayCommandFjernBruger; }
+            set { _relayCommandFjernBruger = value; }
+        }
 
         #region INotifyPropertyChanged
 
@@ -31,17 +52,25 @@ namespace S1G7Projekt
         {
             _relayCommandOpretBruger = new RelayCommand(OpretBruger);
             _relayCommandFjernBruger = new RelayCommand(FjernBruger);
+
+            _brugerListe = new ObservableCollection<Bruger>();
+
+            BrugerNavn = null;
+            KodeOrd = null;
         }
 
         public void OpretBruger()
         {
             ID += ID;
-            BrugerListe.Add(new Bruger(ID, BrugerNavn, KodeOrd));
+            if (BrugerNavn != null && KodeOrd != null)
+            {
+                BrugerListe.Add(new Bruger(ID, BrugerNavn, KodeOrd));
+            }   //TODO: ExceptionHandling og skrive til fil
         }
 
         public void FjernBruger()
         {
             BrugerListe.RemoveAt(ID);
-        }
+        }   //TODO: ExceptionHandling og skrive til fil
     }
 }
