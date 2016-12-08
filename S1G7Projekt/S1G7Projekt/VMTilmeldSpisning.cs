@@ -6,13 +6,14 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Windows.Devices.Bluetooth.Advertisement;
+using Windows.UI.Xaml.Controls.Primitives;
 using NoteModelOpg33;
 
 namespace S1G7Projekt
 {
     class VMTilmeldSpisning
     {
-        public string SelectedDag { get; set; }
+        public int SelectedDag { get; set; }
         public int SelectedHus { get; set; }
 
         public int AntalVoksne { get; set; }
@@ -48,29 +49,38 @@ namespace S1G7Projekt
             
 
             _relayCommandGem = new RelayCommand(GemTilmelding);
+
+
         }
 
         public void GemTilmelding()
         {
-            if (Dag != null && HusNr != null)
+            try
             {
-                if (AntalVoksne != 0 || AntalBorn7_15 != 0 || AntalBorn3_6 != 0 || AntalBornU3 != 0)
+                if (SelectedHus != -1 && SelectedDag != -1)
                 {
-                    InputInfo.Add($"{Dag}");
-                    InputInfo.Add($"{AntalVoksne}");
-                    InputInfo.Add($"{AntalBorn7_15}");
-                    InputInfo.Add($"{AntalBorn3_6}");
-                    InputInfo.Add($"{AntalBornU3}");
+                    if (AntalVoksne != 0 || AntalBorn7_15 != 0 || AntalBorn3_6 != 0 || AntalBornU3 != 0)
+                    {
+                        InputInfo.Add($"{Dag}");
+                        InputInfo.Add($"{AntalVoksne}");
+                        InputInfo.Add($"{AntalBorn7_15}");
+                        InputInfo.Add($"{AntalBorn3_6}");
+                        InputInfo.Add($"{AntalBornU3}");
 
-                    InfoDictionary.Add(HusNr[SelectedHus], InputInfo);
+                        InfoDictionary.Add(HusNr[SelectedHus], InputInfo);
 
 
-                    FileHandler.Tilmelding(InfoDictionary);
+                        FileHandler.Tilmelding(InfoDictionary);
+                    }
+                    else
+                    {
+                        throw new ArgumentException();
+                    }
                 }
-                else
-                {
-                    //TODO: Exception
-                }
+            }
+            catch(ArgumentException)
+            {
+                throw new ArgumentException("Dag eller HusNR er ikke valgt");
             }
         }
 
