@@ -29,7 +29,8 @@ namespace S1G7Projekt
 
         public VMOpretBruger()
         {
-            
+            _relayCommandOpretBruger = new RelayCommand(OpretBruger);
+            _relayCommandFjernBruger = new RelayCommand(FjernBruger);
         }
 
         public void OpretBruger()
@@ -40,7 +41,7 @@ namespace S1G7Projekt
 
         public void FjernBruger()
         {
-            
+            BrugerListe.RemoveAt(ID);
         }
     }
 }
