@@ -16,7 +16,6 @@ namespace S1G7Projekt
         private RelayCommand _relayCommandFjernBruger;
         private ObservableCollection<Bruger> _brugerListe;
         public string BrugerNavn { get; set; }
-        public string KodeOrd { get; set; }
         public int ID { get; set; }
 
         public ObservableCollection<Bruger> BrugerListe
@@ -56,17 +55,17 @@ namespace S1G7Projekt
             _brugerListe = new ObservableCollection<Bruger>();
 
             BrugerNavn = null;
-            KodeOrd = null;
         }
 
         public void OpretBruger()
         {
             ID += ID;
-            if (BrugerNavn != null && KodeOrd != null)
+            if (string.IsNullOrWhiteSpace(BrugerNavn))
             {
-                BrugerListe.Add(new Bruger(ID, BrugerNavn, KodeOrd));
-            }   //TODO: ExceptionHandling og skrive til fil
-        }
+                throw new ArgumentException("Brugernavn mangler");
+            }   
+            BrugerListe.Add(new Bruger(ID, BrugerNavn));
+        }       //TODO: skrive til fil
 
         public void FjernBruger()
         {
