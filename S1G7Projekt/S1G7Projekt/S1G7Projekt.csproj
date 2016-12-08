@@ -97,6 +97,7 @@
     </Compile>
     <Compile Include="Bruger.cs" />
     <Compile Include="FileHandler.cs" />
+    <Compile Include="Job.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -106,6 +107,7 @@
     <Compile Include="VMNaesteUgePlan.cs" />
     <Compile Include="VMOpretBruger.cs" />
     <Compile Include="VMTilmeldSpisning.cs" />
+    <Compile Include="VMUgePlan.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
