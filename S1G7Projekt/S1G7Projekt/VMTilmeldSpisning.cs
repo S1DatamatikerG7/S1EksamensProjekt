@@ -12,10 +12,7 @@ namespace S1G7Projekt
 {
     class VMTilmeldSpisning
     {
-
-        public String Dag { get; set; }
-
-
+        public string SelectedDag { get; set; }
         public int SelectedHus { get; set; }
 
         public int AntalVoksne { get; set; }
@@ -25,7 +22,7 @@ namespace S1G7Projekt
 
 
 
-
+        public List<String> Dag { get; set; }
         public List<String> HusNr { get; set; }
         public Dictionary<String, List<string>> InfoDictionary;
         public List<String> InputInfo;
@@ -43,19 +40,19 @@ namespace S1G7Projekt
         public VMTilmeldSpisning()
         {
             HusNr = FileHandler.getHusListe();
+            Dag = FileHandler.getDagListe();
             SelectedHus = 0;
-            InfoDictionary = new Dictionary<string, List<string>>();
+            InfoDictionary = LoadTilmelding();
             InputInfo = new List<string>();
 
-
-
+            
 
             _relayCommandGem = new RelayCommand(GemTilmelding);
         }
 
         public void GemTilmelding()
         {
-            if (Dag != null || HusNr != null)
+            if (Dag != null && HusNr != null)
             {
                 if (AntalVoksne != 0 || AntalBorn7_15 != 0 || AntalBorn3_6 != 0 || AntalBornU3 != 0)
                 {
