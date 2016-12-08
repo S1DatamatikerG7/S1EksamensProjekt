@@ -6,12 +6,16 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using NoteModelOpg33;
 
 namespace S1G7Projekt
 {
     class VMNaesteUgePlan : INotifyPropertyChanged
     {
-        private ObservableCollection<Ret> _retJobBeskrivelser;
+        private ObservableCollection<Job> _retJobBeskrivelser;
+        private RelayCommand _relayCommandTilfoejRedigereRet;
+        private RelayCommand _relayCommandTilfoejJob;
+        private RelayCommand _relayCommandFjernJob;
 
         #region INotifyPropertyChanged
 
@@ -24,26 +28,84 @@ namespace S1G7Projekt
 
         #endregion
 
-        public ObservableCollection<Ret> RetJob_Beskrivelser
+        public ObservableCollection<Job> RetJob_Beskrivelser
         {
             get { return _retJobBeskrivelser; }
             set { _retJobBeskrivelser = value; }
         }
 
-        public string Mandag { get; set; }
-        public string Tirsdag { get; set; }
-        public string Onsdag { get; set; }
-        public string Torsdag { get; set; }
-        public int Uge { get; set; }
-
-        public næsteuge()
+        public RelayCommand RelayCommandTilfoejRedigereRet
         {
-            _retJobBeskrivelser = new ObservableCollection<Ret>();
-            Mandag = "Mandag";
-            Tirsdag = "Tirsdag";
-            Onsdag = "Onsdag";
-            Torsdag = "Torsdag";
-            Uge = UgeHandler.GetNaesteUge;
+            get { return _relayCommandTilfoejRedigereRet; }
+            set { _relayCommandTilfoejRedigereRet = value; }
         }
+
+        public RelayCommand RelayCommandTilfoejJob
+        {
+            get { return _relayCommandTilfoejJob; }
+            set { _relayCommandTilfoejJob = value; }
+        }
+
+        public RelayCommand RelayCommandFjernJob
+        {
+            get { return _relayCommandFjernJob; }
+            set { _relayCommandFjernJob = value; }
+        }
+
+        public string RetTekstBox { get; set; }
+        public string RetMandag { get; set; }
+        public string RetTirsdag { get; set; }
+        public string RetOnsdag { get; set; }
+        public string RetTorsdag { get; set; }
+        public int UgeNr { get; set; }
+        public List<string> JobTypeList { get; set; }
+        public List<string> DagList { get; set; }
+        public string Name { get; set; }
+
+        public VMNaesteUgePlan()
+        {
+            _relayCommandTilfoejRedigereRet = new RelayCommand(TilfoejRedigereRet);
+            _relayCommandTilfoejJob = new RelayCommand(TilfoejJob);
+            _relayCommandFjernJob = new RelayCommand(FjernJob);
+
+            _retJobBeskrivelser = new ObservableCollection<Job>();
+            DagList = new List<string>();
+            JobTypeList = new List<string>();
+            RetTekstBox = null;
+            Name = null;
+            UgeNr = UgeHandler.GetNaesteUge;
+        }
+
+        public void TilfoejRedigereRet()
+        {
+            switch (DagList)
+            {
+                case "Mandag":
+                    RetMandag = RetTekstBox;
+                    break;
+                case "Tirsdag":
+                    RetTirsdag = RetTekstBox;
+                    break;
+                case "Onsdag":
+                    RetOnsdag = RetTekstBox;
+                    break;
+                case "Torsdag":
+                    RetTorsdag = RetTekstBox;
+                    break;
+                //default:
+                //    break;
+            }                               //TODO: exception handling og skrive til fil
+        }
+
+        public void TilfoejJob()
+        {
+            
+        }
+
+        public void FjernJob()
+        {
+            
+        }
+
     }
 }
