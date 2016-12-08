@@ -12,7 +12,9 @@ namespace S1G7Projekt
 
         public String Dag { get; set; }
 
-        public String HusNr { get; set; }
+        public List<String> HusNr { get; set; }
+
+        public int SelectedHus { get; set; }
 
         public int AntalVoksne { get; set; }
         public int AntalBorn7_15 { get; set; }
@@ -24,14 +26,14 @@ namespace S1G7Projekt
 
         public VMTilmeldSpisning()
         {
+            HusNr = FileHandler.getHusListe();
+            SelectedHus = 0;
             InfoDictionary = new Dictionary<string, List<string>>();
             InputInfo = new List<string>();
         }
 
         public void GemTilmelding()
         {
-
-
             if (Dag != null)
             {
                 if (HusNr != null)
@@ -44,7 +46,7 @@ namespace S1G7Projekt
                         InputInfo.Add($"{AntalBorn3_6}");
                         InputInfo.Add($"{AntalBornU3}");
 
-                        InfoDictionary.Add(HusNr, InputInfo);
+                        InfoDictionary.Add(HusNr[SelectedHus], InputInfo);
 
 
                         FileHandler.Tilmelding(InfoDictionary);

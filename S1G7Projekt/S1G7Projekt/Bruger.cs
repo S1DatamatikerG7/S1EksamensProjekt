@@ -25,7 +25,7 @@ namespace S1G7Projekt
             BrugerID = brugerId;
             BrugerNavn = brugerNavn;
             Kodeord = kodeord;
-            BrugerListe = FileHandler.getBrugerListe();
+            BrugerListe = FileHandler.getHusListe();
         }
     }
 }
