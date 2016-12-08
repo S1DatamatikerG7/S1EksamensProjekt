@@ -10,7 +10,7 @@ namespace S1G7Projekt
     class Bruger
     {
         public int BrugerID { get; set; }
-        public String HusNr { get; set; }
+        public String BrugerNavn { get; set; }
         public String Kodeord { get; set; }
         public List<Bruger> BrugerListe;
 
@@ -20,10 +20,10 @@ namespace S1G7Projekt
             
         }
 
-        public Bruger(int brugerId, string husNr, string kodeord)
+        public Bruger(int brugerId, string brugerNavn, string kodeord)
         {
             BrugerID = brugerId;
-            HusNr = husNr;
+            BrugerNavn = brugerNavn;
             Kodeord = kodeord;
             BrugerListe = FileHandler.getBrugerListe();
         }
