@@ -47,10 +47,7 @@ namespace S1G7Projekt
             InputInfo = new List<string>();
 
             
-
             _relayCommandGem = new RelayCommand(GemTilmelding);
-
-
         }
 
         public void GemTilmelding()
