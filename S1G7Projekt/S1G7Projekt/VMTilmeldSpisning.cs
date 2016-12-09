@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using System.Xml;
 using Windows.Devices.Bluetooth.Advertisement;
 using Windows.UI.Xaml.Controls.Primitives;
 using NoteModelOpg33;
@@ -42,8 +43,7 @@ namespace S1G7Projekt
         {
             HusNr = FileHandler.getHusListe();
             Dag = FileHandler.getDagListe();
-            SelectedHus = 0;
-            InfoDictionary = LoadTilmelding();
+            InfoDictionary = new Dictionary<string, List<string>>();
             InputInfo = new List<string>();
 
             
@@ -56,23 +56,20 @@ namespace S1G7Projekt
             {
                 if (SelectedHus != -1 && SelectedDag != -1)
                 {
-                    if (AntalVoksne != 0 || AntalBorn7_15 != 0 || AntalBorn3_6 != 0 || AntalBornU3 != 0)
-                    {
-                        InputInfo.Add($"{Dag}");
+                        InputInfo.Add($"{Dag[SelectedDag]}");
                         InputInfo.Add($"{AntalVoksne}");
                         InputInfo.Add($"{AntalBorn7_15}");
                         InputInfo.Add($"{AntalBorn3_6}");
                         InputInfo.Add($"{AntalBornU3}");
 
+                        InfoDictionary.Clear();
                         InfoDictionary.Add(HusNr[SelectedHus], InputInfo);
-
-
+                    
                         FileHandler.Tilmelding(InfoDictionary);
-                    }
-                    else
-                    {
-                        throw new ArgumentException();
-                    }
+                }
+                else
+                {
+                    throw new ArgumentException();
                 }
             }
             catch(ArgumentException)
@@ -82,11 +79,24 @@ namespace S1G7Projekt
         }
 
 
-        public Dictionary<string, List<string>> LoadTilmelding()
+        public void LoadTilmelding()
         {
-            //TODO: Load
+            if (SelectedHus != -1 & SelectedDag != -1)
+            {
+                Dictionary<String, List<String>> TempLoad = FileHandler.LoadTilmelding();
 
-            return null;
+                foreach (KeyValuePair<string, List<string>> pair in TempLoad)
+                {
+                    if (pair.Key == HusNr[SelectedHus] && pair.Value[0] == Dag[SelectedDag])
+                    {
+                        AntalVoksne = int.Parse(pair.Value[1]);
+                        AntalBorn7_15 = int.Parse(pair.Value[2]);
+                        AntalBorn3_6 = int.Parse(pair.Value[3]);
+                        AntalBornU3 = int.Parse(pair.Value[4]);
+                    }
+                }
+
+            }
         }
     }
 }
