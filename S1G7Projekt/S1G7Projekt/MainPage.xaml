@@ -6,8 +6,18 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
+    <Page.Resources>
+        <ImageSource x:Key="ImageSource1">file:///Assets/UIDone.png</ImageSource>
+    </Page.Resources>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid HorizontalAlignment="Left" Height="720" VerticalAlignment="Top" Width="1280">
+            <Grid.Background>
+                <ImageBrush Stretch="UniformToFill" ImageSource="Assets/UIDone.png"/>
+            </Grid.Background>
+            <Image x:Name="image" HorizontalAlignment="Left" Height="720" VerticalAlignment="Top" Width="1280" Source="Billeder/UIDone.png"/>
+        </Grid>
+
 
     </Grid>
 </Page>
