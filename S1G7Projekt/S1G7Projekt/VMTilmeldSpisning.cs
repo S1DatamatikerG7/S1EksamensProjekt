@@ -42,7 +42,7 @@ namespace S1G7Projekt
         public VMTilmeldSpisning()
         {
             HusNr = FileHandler.getHusListe();
-            Dag = FileHandler.getDagListe();
+            Dag = UgeHandler.getDagListe();
             InfoDictionary = new Dictionary<string, List<string>>();
             InputInfo = new List<string>();
 
@@ -56,6 +56,7 @@ namespace S1G7Projekt
             {
                 if (SelectedHus != -1 && SelectedDag != -1)
                 {
+                        InputInfo.Clear();
                         InputInfo.Add($"{Dag[SelectedDag]}");
                         InputInfo.Add($"{AntalVoksne}");
                         InputInfo.Add($"{AntalBorn7_15}");
