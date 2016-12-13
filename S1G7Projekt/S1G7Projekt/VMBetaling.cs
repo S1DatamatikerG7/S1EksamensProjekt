@@ -71,7 +71,7 @@ namespace S1G7Projekt
             double TotalDiv = 0;
             for (int j = 0; j < BetalingsArray.Length; j++)
             {
-                TotalDiv = TotalDiv + ((BetalingsArray[j, 0]*VoksenPris) + (BetalingsArray[j, 1]*Barn715) + (BetalingsArray[j, 2]*Barn36) + (BetalingsArray[j, 3]*BarnU3));
+                TotalDiv = TotalDiv + ((BetalingsArray[j, 0]*(VoksenPris/100)) + (BetalingsArray[j, 1]*(Barn715/100)) + (BetalingsArray[j, 2]*(Barn36/100)) + (BetalingsArray[j, 3]*(BarnU3/100)));
             }
 
 
