@@ -12,37 +12,52 @@ namespace S1G7Projekt
     class FileHandler
     {
         private static string HusNrListe = "HusNrListe.json";
-        private static string BetalingsListeFileName = "BetalingsListe.json";
+        private static string TilmeldspisningListe = "BetalingsListe.json";
         private static string TilmeldSpisningFileName = "TilmeldSpisning.json";
         private static string NaesteUgeFileName = "NaesteUge.json";
 
         #region HusListe
 
-        public static async void SaveHusNrListe(List<String> HusNr)
+        public static async void SaveHusNrListeJsonAsync(List<String> HusNr)
         {
-            string NoteAsJsonString = JsonConvert.SerializeObject(HusNr);
-            SerializeNotesFileAsync(NoteAsJsonString, HusNrListe);
+            string HusNrAsJsonString = JsonConvert.SerializeObject(HusNr);
+            SerializeNotesFileAsync(HusNrAsJsonString, HusNrListe);
         }
 
-        public static async Task<List<String>> LoadHusNrListe()
+        public static async Task<List<String>> LoadHusNrListeJsonAsync()
         {
-            string notesJsonString = await DeserializeNotesFileAsync(HusNrListe);
-            return (List<String>)JsonConvert.DeserializeObject(notesJsonString, typeof(List<String>));
+            string husNrsJsonString = await DeserializeNotesFileAsync(HusNrListe);
+            return (List<String>)JsonConvert.DeserializeObject(husNrsJsonString, typeof(List<String>));
         }
 
         #endregion
-        #region Dag
+        #region Tilmeldspisning
 
-        public static async void SaveNoteAsJsonAsync(List<String> HusNr)
+        public static async void SaveTilmeldingJsonAsync(Dictionary<string, List<string>> Tilmeldspisning)
         {
-            string NoteAsJsonString = JsonConvert.SerializeObject(HusNr);
-            SerializeNotesFileAsync(NoteAsJsonString, HusNrListe);
+            string TilmeldAsJsonString = JsonConvert.SerializeObject(Tilmeldspisning);
+            SerializeNotesFileAsync(TilmeldAsJsonString, TilmeldspisningListe);
+        }
+
+        public static async Task<List<String>> LoadTilmeldingJsonAsync()
+        {
+            string tilmeldingJsonString = await DeserializeNotesFileAsync(TilmeldspisningListe);
+            return (Dictionary<string, List<string>>)JsonConvert.DeserializeObject(tilmeldingJsonString, typeof(Dictionary<string, List<string>>));
+        }
+
+        #endregion
+        #region NOT DONE!
+
+        public static async void SaveNoteAsJsonAsync(Dictionary<string, List<string>> Tilmeldspisning)
+        {
+            string TilmeldAsJsonString = JsonConvert.SerializeObject(Tilmeldspisning);
+            SerializeNotesFileAsync(TilmeldAsJsonString, TilmeldspisningListe);
         }
 
         public static async Task<List<String>> LoadNoteFromJsonAsync()
         {
-            string notesJsonString = await DeserializeNotesFileAsync(HusNrListe);
-            return (List<String>)JsonConvert.DeserializeObject(notesJsonString, typeof(List<String>));
+            string tilmeldingJsonString = await DeserializeNotesFileAsync(TilmeldspisningListe);
+            return (Dictionary<string, List<string>>)JsonConvert.DeserializeObject(tilmeldingJsonString, typeof(Dictionary<string, List<string>>));
         }
 
         #endregion
