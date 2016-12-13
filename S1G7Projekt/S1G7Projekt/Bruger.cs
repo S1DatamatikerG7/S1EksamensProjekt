@@ -23,7 +23,7 @@ namespace S1G7Projekt
         {
             BrugerID = brugerId;
             BrugerNavn = brugerNavn;
-            BrugerListe = FileHandler.getHusListe();
+            BrugerListe = FileHandler.LoadHusNrListeJsonAsync();
         }
     }
 }
