@@ -8,6 +8,13 @@ namespace S1G7Projekt
 {
     class VMBetaling
     {
+        public int VoksenPris = 100;    // Voksen betaler 100%
+        public int Barn715 = 50;        // Barn 7-15 betaler 50%
+        public int Barn36 = 25;         // Barn 3-6 betaler 25%
+        public int BarnU3 = 0;          // Barn u. 3 betaler 0%
+
+
+
         public string SelectedHusNr { get; set; }
         public List<String> HusNr { get; set; }
         public int[,] BetalingsArray;
@@ -61,16 +68,16 @@ namespace S1G7Projekt
                 i++;
             }
 
-            double TotlaDiv = 0;
+            double TotalDiv = 0;
             for (int j = 0; j < BetalingsArray.Length; j++)
             {
-                TotlaDiv = TotlaDiv + ((BetalingsArray[j, 0]*1) + (BetalingsArray[j, 1]*0.5) + (BetalingsArray[j, 2]*0.25));
+                TotalDiv = TotalDiv + ((BetalingsArray[j, 0]*(VoksenPris/100)) + (BetalingsArray[j, 1]*(Barn715/100)) + (BetalingsArray[j, 2]*(Barn36/100)) + (BetalingsArray[j, 3]*(BarnU3/100)));
             }
 
 
             double TotalChefBetaling = (ChefBetalingMan + ChefBetalingTir + ChefBetalingOne + ChefBetalingTor);
 
-            double BetlaingPrPerson = TotalChefBetaling/TotlaDiv;
+            double BetalingPrPerson = TotalChefBetaling/TotalDiv;
 
 
             int k = 0;
@@ -83,19 +90,10 @@ namespace S1G7Projekt
                 }
             }
 
-            BetalingMan = BetalingsArrayPrHus[0, 0] * BetlaingPrPerson;
-            BetalingTir = BetalingsArrayPrHus[1, 0] * BetlaingPrPerson;
-            BetalingOns = BetalingsArrayPrHus[2, 0] * BetlaingPrPerson;
-            BetalingTor = BetalingsArrayPrHus[3, 0] * BetlaingPrPerson;
+            BetalingMan = BetalingsArrayPrHus[0, 0] * BetalingPrPerson;
+            BetalingTir = BetalingsArrayPrHus[1, 0] * BetalingPrPerson;
+            BetalingOns = BetalingsArrayPrHus[2, 0] * BetalingPrPerson;
+            BetalingTor = BetalingsArrayPrHus[3, 0] * BetalingPrPerson;
         }
-
-
-
-
-
-
-
-
-
     }
 }
