@@ -57,10 +57,18 @@ namespace S1G7Projekt
         public string RetTirsdag { get; set; }
         public string RetOnsdag { get; set; }
         public string RetTorsdag { get; set; }
+        public List<string> RetList { get; set; }
+        public List<string> MandagList { get; set; }
+        public List<string> TirsdagList { get; set; }
+        public List<string> OnsdagList { get; set; }
+        public List<string> TorsdagList { get; set; }
         public int UgeNr { get; set; }
         public List<string> JobTypeList { get; set; }
         public List<string> DagList { get; set; }
-        public string Name { get; set; }
+        public string Navn { get; set; }
+        public int SelectedDag { get; set; }
+        public int SelectedJob { get; set; }
+        public int SelectedJobType { get; set; }
 
         public VMNaesteUgePlan()
         {
@@ -71,14 +79,25 @@ namespace S1G7Projekt
             _retJobBeskrivelser = new ObservableCollection<Job>();
             DagList = new List<string>();
             JobTypeList = new List<string>();
+            RetList = FileHandler.LoadRetListJsonAsync();
+            MandagList = FileHandler.LoadMandagJobListJsonAsync();
+            TirsdagList = FileHandler.LoadTirsdagJobListJsonAsync();
+            OnsdagList = FileHandler.LoadOnsdagJobListJsonAsync();
+            TorsdagList = FileHandler.LoadTorsdagJobListJsonAsync();
             RetTekstBox = null;
-            Name = null;
+            Navn = null;
+            SelectedDag = null;
             UgeNr = UgeHandler.GetNaesteUge;
+
+            RetMandag = RetList[0];
+            RetTirsdag = RetList[1];
+            RetOnsdag = RetList[2];
+            RetTorsdag = RetList[3];
         }
 
         public void TilfoejRedigereRet()
         {
-            switch (DagList)
+            switch (DagList[SelectedDag])
             {
                 case "Mandag":
                     RetMandag = RetTekstBox;
@@ -92,20 +111,63 @@ namespace S1G7Projekt
                 case "Torsdag":
                     RetTorsdag = RetTekstBox;
                     break;
-                //default:
-                //    break;
-            }                               //TODO: exception handling og skrive til fil
+                default:
+                    throw new ArgumentException("Vælg Dag");
+                    break;
+                    FileHandler.SaveRetListJsonAsync();
+            }                               //TODO: skrive til fil
         }
-
+                                            //TODO: for tilfoej og fjern skal laves færdigt og skrive til fil
         public void TilfoejJob()
         {
-            
+            switch (DagList[SelectedDag])
+            {
+                case "Mandag":
+                    MandagList.Add();
+                    break;
+                case "Tirsdag":
+                    TirsdagList.Add();
+                    break;
+                case "Onsdag":
+                    OnsdagList.Add();
+                    break;
+                case "Torsdag":
+                    TorsdagList.Add();
+                    break;
+                //default:
+                //    throw new ArgumentException("Vælg Dag");
+                //    break;
+                    FileHandler.SaveMandagJobListJsonAsync(MandagList);
+                    FileHandler.SaveTirsdagJobListJsonAsync(TirsdagList);
+                    FileHandler.SaveOnsdagJobListJsonAsync(OnsdagList);
+                    FileHandler.SaveTorsdagJobListJsonAsync(TorsdagList);
+            }
         }
 
         public void FjernJob()
         {
-            
-        }
-
+            switch (DagList[SelectedDag])
+            {
+                case "Mandag":
+                    MandagList.RemoveAt();
+                    break;
+                case "Tirsdag":
+                    TirsdagList.RemoveAt();
+                    break;
+                case "Onsdag":
+                    OnsdagList.RemoveAt();
+                    break;
+                case "Torsdag":
+                    TorsdagList.RemoveAt();
+                    break;
+                //default:
+                //   throw new ArgumentException("Vælg Dag");
+                //    break;
+                    FileHandler.SaveMandagJobListJsonAsync(MandagList);
+                    FileHandler.SaveTirsdagJobListJsonAsync(TirsdagList);
+                    FileHandler.SaveOnsdagJobListJsonAsync(OnsdagList);
+                    FileHandler.SaveTorsdagJobListJsonAsync(TorsdagList);
+            }
+       }
     }
 }
