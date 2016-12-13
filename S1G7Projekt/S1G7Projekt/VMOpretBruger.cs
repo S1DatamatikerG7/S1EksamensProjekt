@@ -65,11 +65,13 @@ namespace S1G7Projekt
                 throw new ArgumentException("Brugernavn mangler");
             }   
             BrugerListe.Add(new Bruger(ID, BrugerNavn));
-        }       //TODO: skrive til fil
+            FileHandler.SaveBrugerJsonAsync();
+        }       
 
         public void FjernBruger()
         {
             BrugerListe.RemoveAt(ID);
-        }   //TODO: ExceptionHandling og skrive til fil
+            FileHandler.SaveBrugerJsonAsync();
+        }   
     }
 }

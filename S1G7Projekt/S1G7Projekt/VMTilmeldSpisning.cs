@@ -41,7 +41,7 @@ namespace S1G7Projekt
 
         public VMTilmeldSpisning()
         {
-            HusNr = FileHandler.getHusListe();
+            HusNr = FileHandler.LoadHusNrListeJsonAsync();
             Dag = UgeHandler.getDagListe();
             InfoDictionary = new Dictionary<string, List<string>>();
             InputInfo = new List<string>();
@@ -66,7 +66,7 @@ namespace S1G7Projekt
                         InfoDictionary.Clear();
                         InfoDictionary.Add(HusNr[SelectedHus], InputInfo);
                     
-                        FileHandler.Tilmelding(InfoDictionary);
+                        FileHandler.SaveTilmeldingJsonAsync(InfoDictionary);
                 }
                 else
                 {
@@ -84,7 +84,7 @@ namespace S1G7Projekt
         {
             if (SelectedHus != -1 & SelectedDag != -1)
             {
-                Dictionary<String, List<String>> TempLoad = FileHandler.LoadTilmelding();
+                Dictionary<String, List<String>> TempLoad = FileHandler.LoadTilmeldingJsonAsync();
 
                 foreach (KeyValuePair<string, List<string>> pair in TempLoad)
                 {
