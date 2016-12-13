@@ -41,7 +41,7 @@ namespace S1G7Projekt
 
         public VMTilmeldSpisning()
         {
-            HusNr = FileHandler.getHusListe();
+            HusNr = FileHandler.LoadHusNrListe();
             Dag = UgeHandler.getDagListe();
             InfoDictionary = new Dictionary<string, List<string>>();
             InputInfo = new List<string>();
