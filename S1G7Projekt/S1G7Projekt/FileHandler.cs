@@ -12,8 +12,8 @@ namespace S1G7Projekt
     class FileHandler
     {
         private static string HusNrListe = "HusNrListe.json";
-        private static string TilmeldspisningListe = "BetalingsListe.json";
-        private static string TilmeldSpisningFileName = "TilmeldSpisning.json";
+        private static string TilmeldspisningListe = "TilmeldSpisningListe.json";
+        private static string BrugerListe = "BrugerListe.json";
         private static string NaesteUgeFileName = "NaesteUge.json";
 
         #region HusListe
@@ -46,18 +46,18 @@ namespace S1G7Projekt
         }
 
         #endregion
-        #region NOT DONE!
+        #region Bruger
 
-        public static async void SaveNoteAsJsonAsync(Dictionary<string, List<string>> Tilmeldspisning)
+        public static async void SaveBrugerJsonAsync(ObservableCollection<Bruger> Bruger)
         {
-            string TilmeldAsJsonString = JsonConvert.SerializeObject(Tilmeldspisning);
-            SerializeNotesFileAsync(TilmeldAsJsonString, TilmeldspisningListe);
+            string BrugerAsJsonString = JsonConvert.SerializeObject(Bruger);
+            SerializeNotesFileAsync(BrugerAsJsonString, BrugerListe);
         }
 
-        public static async Task<List<String>> LoadNoteFromJsonAsync()
+        public static async Task<List<String>> LoadBrugerJsonAsync()
         {
-            string tilmeldingJsonString = await DeserializeNotesFileAsync(TilmeldspisningListe);
-            return (Dictionary<string, List<string>>)JsonConvert.DeserializeObject(tilmeldingJsonString, typeof(Dictionary<string, List<string>>));
+            string BrugersJsonString = await DeserializeNotesFileAsync(BrugerListe);
+            return (ObservableCollection<Bruger>)JsonConvert.DeserializeObject(BrugersJsonString, typeof(ObservableCollection<Bruger>));
         }
 
         #endregion
