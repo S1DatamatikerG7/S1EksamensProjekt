@@ -66,7 +66,7 @@ namespace S1G7Projekt
                         InfoDictionary.Clear();
                         InfoDictionary.Add(HusNr[SelectedHus], InputInfo);
                     
-                        FileHandler.Tilmelding(InfoDictionary);
+                        FileHandler.SaveTilmelding(InfoDictionary);
                 }
                 else
                 {
