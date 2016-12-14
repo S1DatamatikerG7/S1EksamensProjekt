@@ -28,10 +28,10 @@
             <TextBlock x:Name="TirsdagTekst" HorizontalAlignment="Left" Margin="525,170,0,0" TextWrapping="Wrap" Text="Tirsdag" VerticalAlignment="Top" FontSize="20"/>
             <TextBlock x:Name="OnsdagTekst" HorizontalAlignment="Left" Margin="750,170,0,0" TextWrapping="Wrap" Text="Onsdag" VerticalAlignment="Top" FontSize="20"/>
             <TextBlock x:Name="TorsdagTekst" HorizontalAlignment="Left" Margin="975,170,0,0" TextWrapping="Wrap" Text="Torsdag" VerticalAlignment="Top" FontSize="20"/>
-            <ListView x:Name="MandagList" HorizontalAlignment="Left" Height="500" Margin="300,200,0,0" VerticalAlignment="Top" Width="215"/>
-            <ListView x:Name="TirsdagList" HorizontalAlignment="Left" Height="500" Margin="525,200,0,0" VerticalAlignment="Top" Width="215"/>
-            <ListView x:Name="OnsdagList" HorizontalAlignment="Left" Height="500" Margin="750,200,0,0" VerticalAlignment="Top" Width="215"/>
-            <ListView x:Name="TordsagList" HorizontalAlignment="Left" Height="500" Margin="975,200,0,0" VerticalAlignment="Top" Width="215"/>
+            <ListView x:Name="MandagList" HorizontalAlignment="Left" Height="500" Margin="300,200,0,0" VerticalAlignment="Top" Width="215" Background="#FF8F8F8F"/>
+            <ListView x:Name="TirsdagList" HorizontalAlignment="Left" Height="500" Margin="525,200,0,0" VerticalAlignment="Top" Width="215" Background="#FF8F8F8F"/>
+            <ListView x:Name="OnsdagList" HorizontalAlignment="Left" Height="500" Margin="750,200,0,0" VerticalAlignment="Top" Width="215" Background="#FF8F8F8F"/>
+            <ListView x:Name="TordsagList" HorizontalAlignment="Left" Height="500" Margin="975,200,0,0" VerticalAlignment="Top" Width="215" Background="#FF8F8F8F"/>
         </Grid>
 
 
