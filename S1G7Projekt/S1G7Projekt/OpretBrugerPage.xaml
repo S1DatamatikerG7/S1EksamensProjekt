@@ -15,9 +15,11 @@
             <Button x:Name="MenuBetaling" Content="" HorizontalAlignment="Left" Margin="19,272,0,0" VerticalAlignment="Top" Height="47" Width="187"/>
             <Button x:Name="MenuNaesteUgePlan" Content="" HorizontalAlignment="Left" Margin="19,598,0,0" VerticalAlignment="Top" Height="47" Width="187"/>
             <Button x:Name="MenuOpretBruger" Content="" HorizontalAlignment="Left" Margin="19,654,0,0" VerticalAlignment="Top" Height="47" Width="187"/>
-            <TextBlock x:Name="UgeTekst" HorizontalAlignment="Left" Margin="1071,83,0,0" TextWrapping="Wrap" Text="Uge:" VerticalAlignment="Top" Foreground="White" FontSize="35"/>
-            <TextBlock x:Name="UgeNr" HorizontalAlignment="Left" Margin="1147,83,0,0" TextWrapping="Wrap" Text="UgeNr" VerticalAlignment="Top" FontSize="35"/>
             <TextBlock x:Name="SideNavnOverskrift" TextWrapping="Wrap" Text="Opret Bruger" VerticalAlignment="Top" FontSize="50" Margin="495,35,495,0" Foreground="White"/>
+            <ListView x:Name="BrugerList" HorizontalAlignment="Left" Height="530" Margin="300,170,0,0" VerticalAlignment="Top" Width="250" Background="#FF8F8F8F"/>
+            <TextBox x:Name="BrugerNavn_HusNr" HorizontalAlignment="Left" Margin="575,170,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="210" FontSize="20" Height="40"/>
+            <Button x:Name="Add" Content="Tilføj Bruger" HorizontalAlignment="Left" Margin="575,240,0,0" VerticalAlignment="Top" Background="#FF858585" Foreground="White" Width="100"/>
+            <Button x:Name="Remove" Content="Fjern Bruger" HorizontalAlignment="Left" Margin="575,290,0,0" VerticalAlignment="Top" Background="#FF858585" Foreground="White" Width="100"/>
         </Grid>
 
     </Grid>
