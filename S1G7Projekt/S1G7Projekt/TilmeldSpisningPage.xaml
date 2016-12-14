@@ -16,6 +16,16 @@
             <Button x:Name="button3" Content="Button" HorizontalAlignment="Left" Margin="19,598,0,0" VerticalAlignment="Top" Height="47" Width="187"/>
             <Button x:Name="button4" Content="Button" HorizontalAlignment="Left" Margin="19,654,0,0" VerticalAlignment="Top" Height="47" Width="187"/>
         </Grid>
+        <ComboBox x:Name="HusSelect" Margin="320,168,0,0" Width="150"/>
+        <ComboBox x:Name="DagSelect" Margin="320,205,0,0" Width="150"/>
+        <TextBox x:Name="Voksen" HorizontalAlignment="Left" Margin="320,287,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="150"/>
+        <TextBox x:Name="Born_7_15" HorizontalAlignment="Left" Margin="320,0,0,328" TextWrapping="Wrap" Text="TextBox" Width="150" VerticalAlignment="Bottom"/>
+        <TextBox x:Name="Born_3_6" HorizontalAlignment="Left" Margin="320,0,0,260" TextWrapping="Wrap" Text="TextBox" Width="150" VerticalAlignment="Bottom"/>
+        <TextBox x:Name="Born_u3" HorizontalAlignment="Left" Margin="320,0,0,188" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Bottom" Width="150"/>
+        <TextBlock x:Name="Voksen_tb" HorizontalAlignment="Left" Margin="320,255,0,0" TextWrapping="Wrap" Text="Antal Voksende:" VerticalAlignment="Top" FontSize="20" Width="150"/>
+        <TextBlock x:Name="Born_7_15_tb" HorizontalAlignment="Left" Margin="320,255,0,0" TextWrapping="Wrap" Text="Antal Voksende:" VerticalAlignment="Top" FontSize="20" Width="150"/>
+        <TextBlock x:Name="Born_3_6_tb" HorizontalAlignment="Left" Margin="320,255,0,0" TextWrapping="Wrap" Text="Antal Voksende:" VerticalAlignment="Top" FontSize="20" Width="150"/>
+        <TextBlock x:Name="Born_u1" HorizontalAlignment="Left" Margin="320,255,0,0" TextWrapping="Wrap" Text="Antal Voksende:" VerticalAlignment="Top" FontSize="20" Width="150"/>
 
     </Grid>
 </Page>
