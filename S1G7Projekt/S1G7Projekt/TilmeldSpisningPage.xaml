@@ -18,17 +18,33 @@
             <TextBlock x:Name="UgeTekst" HorizontalAlignment="Left" Margin="1071,83,0,0" TextWrapping="Wrap" Text="Uge:" VerticalAlignment="Top" Foreground="White" FontSize="35"/>
             <TextBlock x:Name="UgeNr" HorizontalAlignment="Left" Margin="1147,83,0,0" TextWrapping="Wrap" Text="UgeNr" VerticalAlignment="Top" FontSize="35"/>
             <TextBlock x:Name="SideNavnOverskrift" TextWrapping="Wrap" Text="Ugeplan" VerticalAlignment="Top" FontSize="50" Margin="545,35,545,0" Foreground="White"/>
+            <ComboBox x:Name="HusSelect" Margin="320,246,0,0" Width="150"/>
+            <ComboBox x:Name="DagSelect" Margin="320,173,0,0" Width="150"/>
+            <TextBox x:Name="Voksen" HorizontalAlignment="Left" Margin="320,334,0,354" TextWrapping="Wrap" Text="TextBox" Width="150" d:LayoutOverrides="Height, TopPosition, BottomPosition"/>
+            <TextBox x:Name="Born_7_15" HorizontalAlignment="Left" Margin="320,0,0,281" TextWrapping="Wrap" Text="TextBox" Width="150" VerticalAlignment="Bottom"/>
+            <TextBox x:Name="Born_3_6" HorizontalAlignment="Left" Margin="320,0,0,213" TextWrapping="Wrap" Text="TextBox" Width="150" VerticalAlignment="Bottom"/>
+            <TextBox x:Name="Born_u3" HorizontalAlignment="Left" Margin="320,0,0,141" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Bottom" Width="150"/>
+            <TextBlock x:Name="Voksen_tb" HorizontalAlignment="Left" Margin="320,302,0,0" TextWrapping="Wrap" Text="Antal Voksende:" VerticalAlignment="Top" FontSize="20" Width="150"/>
+            <TextBlock x:Name="Born_7_15_tb" HorizontalAlignment="Left" Margin="320,0,0,313" TextWrapping="Wrap" VerticalAlignment="Bottom" FontSize="20" Width="150">
+                <Run Text="Antal "/>
+                <Run Text="B"/>
+                <Run Text="ø"/>
+                <Run Text="rn 7-15"/>
+                <Run Text=":"/>
+            </TextBlock>
+            <TextBlock x:Name="Born_3_6_tb" HorizontalAlignment="Left" Margin="320,0,0,245" TextWrapping="Wrap" VerticalAlignment="Bottom" FontSize="20" Width="150">
+                <Run Text="Antal "/>
+                <Run Text="Børn 3-6"/>
+                <Run Text=":"/>
+            </TextBlock>
+            <TextBlock x:Name="Born_u3_tb" HorizontalAlignment="Left" Margin="320,0,0,173" TextWrapping="Wrap" VerticalAlignment="Bottom" FontSize="20" Width="150">
+                <Run Text="Antal "/>
+                <Run Text="Børn  &gt; 3"/>
+                <Run Text=":"/>
+            </TextBlock>
+            <TextBlock x:Name="valg_dag" HorizontalAlignment="Left" Margin="320,141,0,0" TextWrapping="Wrap" Text="Vælg dag:" VerticalAlignment="Top" FontSize="20"/>
+            <TextBlock x:Name="textBlock_Copy" HorizontalAlignment="Left" Margin="320,214,0,0" TextWrapping="Wrap" Text="Vælg Husnr:" VerticalAlignment="Top" FontSize="20"/>
         </Grid>
-        <ComboBox x:Name="HusSelect" Margin="320,168,0,0" Width="150"/>
-        <ComboBox x:Name="DagSelect" Margin="320,205,0,0" Width="150"/>
-        <TextBox x:Name="Voksen" HorizontalAlignment="Left" Margin="320,287,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="150"/>
-        <TextBox x:Name="Born_7_15" HorizontalAlignment="Left" Margin="320,0,0,328" TextWrapping="Wrap" Text="TextBox" Width="150" VerticalAlignment="Bottom"/>
-        <TextBox x:Name="Born_3_6" HorizontalAlignment="Left" Margin="320,0,0,260" TextWrapping="Wrap" Text="TextBox" Width="150" VerticalAlignment="Bottom"/>
-        <TextBox x:Name="Born_u3" HorizontalAlignment="Left" Margin="320,0,0,188" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Bottom" Width="150"/>
-        <TextBlock x:Name="Voksen_tb" HorizontalAlignment="Left" Margin="320,255,0,0" TextWrapping="Wrap" Text="Antal Voksende:" VerticalAlignment="Top" FontSize="20" Width="150"/>
-        <TextBlock x:Name="Born_7_15_tb" HorizontalAlignment="Left" Margin="320,255,0,0" TextWrapping="Wrap" Text="Antal Voksende:" VerticalAlignment="Top" FontSize="20" Width="150"/>
-        <TextBlock x:Name="Born_3_6_tb" HorizontalAlignment="Left" Margin="320,255,0,0" TextWrapping="Wrap" Text="Antal Voksende:" VerticalAlignment="Top" FontSize="20" Width="150"/>
-        <TextBlock x:Name="Born_u1" HorizontalAlignment="Left" Margin="320,255,0,0" TextWrapping="Wrap" Text="Antal Voksende:" VerticalAlignment="Top" FontSize="20" Width="150"/>
 
     </Grid>
 </Page>
