@@ -54,7 +54,9 @@
             <TextBlock x:Name="valg_dag" HorizontalAlignment="Left" Margin="320,141,0,0" TextWrapping="Wrap" Text="Vælg dag:" VerticalAlignment="Top" FontSize="20"/>
             
             <TextBlock x:Name="textBlock_Copy" HorizontalAlignment="Left" Margin="320,214,0,0" TextWrapping="Wrap" Text="Vælg Husnr:" VerticalAlignment="Top" FontSize="20"/>
-            <CheckBox x:Name="checkBox" Content="Lås Dag" Margin="500,173,0,0" VerticalAlignment="Top"/>
+            <CheckBox x:Name="Losdag" Content="Lås Dag" Margin="500,173,0,0" VerticalAlignment="Top"/>
+            <Button x:Name="button" Content="Button" VerticalAlignment="Top"/>
+            <Button x:Name="button1" Content="Gem" HorizontalAlignment="Right" Margin="0,0,185,90" VerticalAlignment="Bottom"/>
         </Grid>
 
     </Grid>
