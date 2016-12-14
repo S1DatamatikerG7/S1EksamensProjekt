@@ -15,7 +15,7 @@
             <Grid.Background>
                 <ImageBrush Stretch="UniformToFill" ImageSource="Assets/UIDone.png"/>
             </Grid.Background>
-            <Image x:Name="image" HorizontalAlignment="Left" Height="720" VerticalAlignment="Top" Width="1280" Source="Billeder/UIDone.png"/>
+            <Image x:Name="image" HorizontalAlignment="Left" Height="720" VerticalAlignment="Top" Width="1280" Source="Billeder/UI_Done.png"/>
             <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="19,159,0,0" VerticalAlignment="Top" Height="47" Width="187"/>
             <Button x:Name="button1" Content="Button" HorizontalAlignment="Left" Margin="19,216,0,0" VerticalAlignment="Top" Height="46" Width="187"/>
             <Button x:Name="button2" Content="Button" HorizontalAlignment="Left" Margin="19,272,0,0" VerticalAlignment="Top" Height="47" Width="187"/>
