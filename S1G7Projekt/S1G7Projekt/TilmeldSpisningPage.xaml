@@ -10,11 +10,11 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid HorizontalAlignment="Left" Height="720" VerticalAlignment="Top" Width="1280">
             <Image x:Name="Baggrund" HorizontalAlignment="Left" Height="720" VerticalAlignment="Top" Width="1280" Source="Billeder/UI_Done.png"/>
-            <Button x:Name="MenuUgePlan" Content="Button" HorizontalAlignment="Left" Margin="19,159,0,0" VerticalAlignment="Top" Height="47" Width="187"/>
-            <Button x:Name="MenuTilmeldspisning" Content="Button" HorizontalAlignment="Left" Margin="19,216,0,0" VerticalAlignment="Top" Height="46" Width="187"/>
-            <Button x:Name="MenuBetaling" Content="Button" HorizontalAlignment="Left" Margin="19,272,0,0" VerticalAlignment="Top" Height="47" Width="187"/>
-            <Button x:Name="MenuNaesteUgePlan" Content="Button" HorizontalAlignment="Left" Margin="19,598,0,0" VerticalAlignment="Top" Height="47" Width="187"/>
-            <Button x:Name="MenuOpretBruger" Content="Button" HorizontalAlignment="Left" Margin="19,654,0,0" VerticalAlignment="Top" Height="47" Width="187"/>
+            <Button x:Name="MenuUgePlan" Content="" HorizontalAlignment="Left" Margin="19,159,0,0" VerticalAlignment="Top" Height="47" Width="187"/>
+            <Button x:Name="MenuTilmeldspisning" Content="" HorizontalAlignment="Left" Margin="19,216,0,0" VerticalAlignment="Top" Height="46" Width="187"/>
+            <Button x:Name="MenuBetaling" Content="" HorizontalAlignment="Left" Margin="19,272,0,0" VerticalAlignment="Top" Height="47" Width="187"/>
+            <Button x:Name="MenuNaesteUgePlan" Content="" HorizontalAlignment="Left" Margin="19,598,0,0" VerticalAlignment="Top" Height="47" Width="187"/>
+            <Button x:Name="MenuOpretBruger" Content="" HorizontalAlignment="Left" Margin="19,654,0,0" VerticalAlignment="Top" Height="47" Width="187"/>
             <TextBlock x:Name="UgeTekst" HorizontalAlignment="Left" Margin="1071,83,0,0" TextWrapping="Wrap" Text="Uge:" VerticalAlignment="Top" Foreground="White" FontSize="35"/>
             <TextBlock x:Name="UgeNr" HorizontalAlignment="Left" Margin="1147,83,0,0" TextWrapping="Wrap" Text="UgeNr" VerticalAlignment="Top" FontSize="35"/>
             <TextBlock x:Name="SideNavnOverskrift" TextWrapping="Wrap" Text="Tilmeld Spisning" VerticalAlignment="Top" FontSize="50" Margin="455,35,455,0" Foreground="White"/>
