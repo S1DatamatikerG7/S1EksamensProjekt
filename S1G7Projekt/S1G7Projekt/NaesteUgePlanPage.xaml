@@ -9,7 +9,11 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        
         <Grid HorizontalAlignment="Left" Height="720" VerticalAlignment="Top" Width="1280">
+            <Grid.DataContext>
+                <local:VMNaesteUgePlan/>
+            </Grid.DataContext>
             <Image x:Name="Baggrund" HorizontalAlignment="Left" Height="720" VerticalAlignment="Top" Width="1280" Source="Billeder/UI_Done.png"/>
             <TextBlock x:Name="UgeTekst" HorizontalAlignment="Left" Margin="1071,83,0,0" TextWrapping="Wrap" Text="Uge:" VerticalAlignment="Top" Foreground="White" FontSize="35"/>
             <TextBlock x:Name="UgeNr" HorizontalAlignment="Left" Margin="1147,83,0,0" TextWrapping="Wrap" Text="UgeNr" VerticalAlignment="Top" FontSize="35"/>

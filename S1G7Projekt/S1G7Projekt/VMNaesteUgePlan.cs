@@ -84,8 +84,7 @@ namespace S1G7Projekt
 
             RetTekstBox = null;
             Navn = null;
-            SelectedDag = null;
-            UgeNr = UgeHandler.GetNaesteUge;
+            UgeNr = UgeHandler.GetNaesteUge();
 
             RetMandag = RetList[0];
             RetTirsdag = RetList[1];
