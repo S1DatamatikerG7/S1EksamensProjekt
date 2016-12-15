@@ -36,12 +36,19 @@ namespace S1G7Projekt
 
         public VMBetaling()
         {
-            double[] LoadedChefBetalingsArray = FileHandler.LoadChefBetaling();
-
+            double[] LoadedChefBetalingsArray;
+            LoadedChefBetalingsArray = Load();
             ChefBetalingMan = LoadedChefBetalingsArray[0];
             ChefBetalingTir = LoadedChefBetalingsArray[1];
             ChefBetalingOne = LoadedChefBetalingsArray[2];
             ChefBetalingTor = LoadedChefBetalingsArray[3];
+        }
+
+        public async Task<double[]> Load()
+        {
+            double[] LoadedChefBetalingsArray = await FileHandler.LoadChefBetaling();
+            return LoadedChefBetalingsArray;
+
         }
 
 

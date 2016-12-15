@@ -41,13 +41,20 @@ namespace S1G7Projekt
 
         public VMTilmeldSpisning()
         {
-            HusNr = FileHandler.LoadHusNrListeJsonAsync();
-            Dag = UgeHandler.getDagListe();
+            Load();
+            
             InfoDictionary = new Dictionary<string, List<string>>();
             InputInfo = new List<string>();
 
             
             _relayCommandGem = new RelayCommand(GemTilmelding);
+        }
+
+
+        public async void Load()
+        {
+            HusNr = await FileHandler.LoadHusNrListeJsonAsync();
+            Dag = await UgeHandler.getDagListe();
         }
 
         public void GemTilmelding()
@@ -80,11 +87,11 @@ namespace S1G7Projekt
         }
 
 
-        public void LoadTilmelding()
+        public async void LoadTilmelding()
         {
             if (SelectedHus != -1 & SelectedDag != -1)
             {
-                Dictionary<String, List<String>> TempLoad = FileHandler.LoadTilmeldingJsonAsync();
+                Dictionary<String, List<String>> TempLoad = await FileHandler.LoadTilmeldingJsonAsync();
 
                 foreach (KeyValuePair<string, List<string>> pair in TempLoad)
                 {
