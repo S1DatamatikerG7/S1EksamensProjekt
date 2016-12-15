@@ -10,6 +10,43 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid HorizontalAlignment="Left" Height="720" VerticalAlignment="Top" Width="1280">
+            <Button x:Name="MenuUgePlan" Content="" HorizontalAlignment="Left" Margin="19,159,0,0" VerticalAlignment="Top" Height="47" Width="187">
+                <Interactivity:Interaction.Behaviors>
+                    <Core:EventTriggerBehavior EventName="Click">
+                        <Core:NavigateToPageAction TargetPage="VMUgePlan"/>
+                    </Core:EventTriggerBehavior>
+                </Interactivity:Interaction.Behaviors>
+            </Button>
+            <Button x:Name="MenuTilmeldspisning" Content="" HorizontalAlignment="Left" Margin="19,216,0,0" VerticalAlignment="Top" Height="46" Width="187">
+                <Interactivity:Interaction.Behaviors>
+                    <Core:EventTriggerBehavior EventName="Click">
+                        <Core:NavigateToPageAction TargetPage="VMTilmeldSpisning"/>
+                    </Core:EventTriggerBehavior>
+                </Interactivity:Interaction.Behaviors>
+            </Button>
+            <Button x:Name="MenuBetaling" Content="" HorizontalAlignment="Left" Margin="19,272,0,0" VerticalAlignment="Top" Height="47" Width="187">
+                <Interactivity:Interaction.Behaviors>
+                    <Core:EventTriggerBehavior EventName="Click">
+                        <Core:NavigateToPageAction TargetPage="VmBetaling"/>
+                    </Core:EventTriggerBehavior>
+                </Interactivity:Interaction.Behaviors>
+            </Button>
+            <Button x:Name="MenuNaesteUgePlan" Content="" HorizontalAlignment="Left" Margin="19,598,0,0" VerticalAlignment="Top" Height="47" Width="187">
+                <Interactivity:Interaction.Behaviors>
+                    <Core:EventTriggerBehavior EventName="Click">
+                        <Core:NavigateToPageAction TargetPage="VMNaesteUgePlan"/>
+                    </Core:EventTriggerBehavior>
+                </Interactivity:Interaction.Behaviors>
+            </Button>
+            <Button x:Name="MenuOpretBruger" Content="" HorizontalAlignment="Left" Margin="19,654,0,0" VerticalAlignment="Top" Height="47" Width="187">
+                <Interactivity:Interaction.Behaviors>
+                    <Core:EventTriggerBehavior EventName="Click">
+                        <Core:NavigateToPageAction TargetPage="VmOpretBruger"/>
+                    </Core:EventTriggerBehavior>
+                </Interactivity:Interaction.Behaviors>
+            </Button>
+
+
             <Image x:Name="Baggrund" HorizontalAlignment="Left" Height="720" VerticalAlignment="Top" Width="1280" Source="Billeder/UI_Done.png"/>
             <TextBlock x:Name="UgeTekst" HorizontalAlignment="Left" Margin="1071,83,0,0" TextWrapping="Wrap" Text="Uge:" VerticalAlignment="Top" Foreground="White" FontSize="35"/>
             <TextBlock x:Name="UgeNr" HorizontalAlignment="Left" Margin="1147,83,0,0" TextWrapping="Wrap" Text="UgeNr" VerticalAlignment="Top" FontSize="35"/>
@@ -53,45 +90,7 @@
             <CheckBox x:Name="Losdag" Content="Lås Dag" Margin="500,173,0,0" VerticalAlignment="Top"/>
             <Button x:Name="button" Content="Button" VerticalAlignment="Top"/>
             <Button x:Name="button1" Content="Gem" HorizontalAlignment="Left" Margin="320,0,0,90" VerticalAlignment="Bottom" Width="150"/>
+
+
         </Grid>
-
-
-        <Button x:Name="MenuUgePlan" Content="" HorizontalAlignment="Left" Margin="19,159,0,0" VerticalAlignment="Top" Height="47" Width="187">
-            <Interactivity:Interaction.Behaviors>
-                <Core:EventTriggerBehavior EventName="Click">
-                    <Core:NavigateToPageAction TargetPage="VMUgePlan"/>
-                </Core:EventTriggerBehavior>
-            </Interactivity:Interaction.Behaviors>
-        </Button>
-        <Button x:Name="MenuTilmeldspisning" Content="" HorizontalAlignment="Left" Margin="19,216,0,0" VerticalAlignment="Top" Height="46" Width="187">
-            <Interactivity:Interaction.Behaviors>
-                <Core:EventTriggerBehavior EventName="Click">
-                    <Core:NavigateToPageAction TargetPage="VMTilmeldSpisning"/>
-                </Core:EventTriggerBehavior>
-            </Interactivity:Interaction.Behaviors>
-        </Button>
-        <Button x:Name="MenuBetaling" Content="" HorizontalAlignment="Left" Margin="19,272,0,0" VerticalAlignment="Top" Height="47" Width="187">
-            <Interactivity:Interaction.Behaviors>
-                <Core:EventTriggerBehavior EventName="Click">
-                    <Core:NavigateToPageAction TargetPage="VmBetaling"/>
-                </Core:EventTriggerBehavior>
-            </Interactivity:Interaction.Behaviors>
-        </Button>
-        <Button x:Name="MenuNaesteUgePlan" Content="" HorizontalAlignment="Left" Margin="19,598,0,0" VerticalAlignment="Top" Height="47" Width="187">
-            <Interactivity:Interaction.Behaviors>
-                <Core:EventTriggerBehavior EventName="Click">
-                    <Core:NavigateToPageAction TargetPage="VMNaesteUgePlan"/>
-                </Core:EventTriggerBehavior>
-            </Interactivity:Interaction.Behaviors>
-        </Button>
-        <Button x:Name="MenuOpretBruger" Content="" HorizontalAlignment="Left" Margin="19,654,0,0" VerticalAlignment="Top" Height="47" Width="187">
-            <Interactivity:Interaction.Behaviors>
-                <Core:EventTriggerBehavior EventName="Click">
-                    <Core:NavigateToPageAction TargetPage="VmOpretBruger"/>
-                </Core:EventTriggerBehavior>
-            </Interactivity:Interaction.Behaviors>
-        </Button>
-
-
-    </Grid>
 </Page>

@@ -47,14 +47,19 @@ namespace S1G7Projekt
 
         #endregion
 
+
+
+
         public VMOpretBruger()
         {
+            
             _relayCommandOpretBruger = new RelayCommand(OpretBruger);
             _relayCommandFjernBruger = new RelayCommand(FjernBruger);
 
             _brugerListe = new ObservableCollection<Bruger>();
 
             BrugerNavn = null;
+            
         }
 
         public void OpretBruger()
