@@ -18,9 +18,9 @@
             <TextBlock x:Name="UgeTekst" HorizontalAlignment="Left" Margin="1071,83,0,0" TextWrapping="Wrap" Text="Uge:" VerticalAlignment="Top" Foreground="White" FontSize="35"/>
             <TextBlock x:Name="UgeNr" HorizontalAlignment="Left" Margin="1147,83,0,0" TextWrapping="Wrap" Text="UgeNr" VerticalAlignment="Top" FontSize="35"/>
             <TextBlock x:Name="SideNavnOverskrift" TextWrapping="Wrap" Text="Næste Uge Plan" VerticalAlignment="Top" FontSize="50" Margin="460,35,460,0" Foreground="White"/>
-            <Button x:Name="RetAddRedigere" Content="Tilføj/Redigere" HorizontalAlignment="Left" Margin="900,350,0,0" VerticalAlignment="Top" FontSize="20"/>
-            <Button x:Name="JobAdd" Content="Tilføj" HorizontalAlignment="Left" Margin="1125,360,0,0" VerticalAlignment="Top" Height="40" FontSize="20" Width="80"/>
-            <Button x:Name="JobRemove" Content="Fjern" HorizontalAlignment="Left" Margin="1125,420,0,0" VerticalAlignment="Top" Height="40" Width="80" FontSize="20"/>
+            <Button x:Name="RetAddRedigere" Content="Tilføj/Redigere" HorizontalAlignment="Left" Margin="900,350,0,0" VerticalAlignment="Top" FontSize="20" Width="160"/>
+            <Button x:Name="JobAdd" Content="Tilføj" HorizontalAlignment="Left" Margin="1125,360,0,0" VerticalAlignment="Top" Height="40" FontSize="20" Width="120"/>
+            <Button x:Name="JobRemove" Content="Fjern" HorizontalAlignment="Left" Margin="1125,420,0,0" VerticalAlignment="Top" Height="40" Width="120" FontSize="20"/>
             <ComboBox x:Name="DagDD" HorizontalAlignment="Left" Margin="1035,170,0,0" VerticalAlignment="Top" Width="120" FontSize="20"/>
             <ComboBox x:Name="JobDD" HorizontalAlignment="Left" Margin="1125,230,0,0" VerticalAlignment="Top" Width="120" FontSize="20"/>
             <TextBox x:Name="RetTekstbox" HorizontalAlignment="Left" Margin="900,230,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" FontSize="20" Width="160" Height="90"/>
