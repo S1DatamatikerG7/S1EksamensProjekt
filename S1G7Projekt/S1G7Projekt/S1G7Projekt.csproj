@@ -116,6 +116,7 @@
     <Compile Include="TilmeldSpisningPage.xaml.cs">
       <DependentUpon>TilmeldSpisningPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UgeHandler.cs" />
     <Compile Include="VMBetaling.cs" />
     <Compile Include="VMNaesteUgePlan.cs" />
     <Compile Include="VMOpretBruger.cs" />

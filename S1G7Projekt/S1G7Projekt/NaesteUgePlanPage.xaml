@@ -8,7 +8,11 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        
         <Grid HorizontalAlignment="Left" Height="720" VerticalAlignment="Top" Width="1280">
+            <Grid.DataContext>
+                <local:VMNaesteUgePlan/>
+            </Grid.DataContext>
             <Image x:Name="Baggrund" HorizontalAlignment="Left" Height="720" VerticalAlignment="Top" Width="1280" Source="Billeder/UI_Done.png"/>
             <Button x:Name="MenuUgePlan" HorizontalAlignment="Left" Margin="19,159,0,0" VerticalAlignment="Top" Height="47" Width="187"/>
             <Button x:Name="MenuTilmeldspisning" Content="" HorizontalAlignment="Left" Margin="19,216,0,0" VerticalAlignment="Top" Height="46" Width="187"/>
