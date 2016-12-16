@@ -22,6 +22,13 @@ namespace S1G7Projekt
 
         #endregion
 
-        public ObservableCollection<> Type { get; set; }//skal finde ud af hvad NaesteUgePlan giver
+        public ObservableCollection<UgeHandler> UgePlan { get; set; }
+
+        public VMUgePlan()
+        {
+            UgePlan = new ObservableCollection<UgeHandler>();
+        }
+
+
     }
 }
