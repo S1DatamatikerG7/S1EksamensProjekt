@@ -54,7 +54,7 @@ namespace S1G7Projekt
         public async void Load()
         {
             HusNr = await FileHandler.LoadHusNrListeJsonAsync();
-            Dag = await UgeHandler.getDagListe();
+            Dag = UgeHandler.GetDagListe();
         }
 
         public void GemTilmelding()
