@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,6 +21,11 @@ namespace S1G7Projekt
         private static string TorsdagJobListeFile = "TorsdagJobListe.json";
         private static string RetListeFile = "RetListe.json";
         private static string ChefBetalingFile = "ChefBetaling.json";
+
+        public FileHandler()
+        {
+            
+        }
 
 
         #region HusListe
