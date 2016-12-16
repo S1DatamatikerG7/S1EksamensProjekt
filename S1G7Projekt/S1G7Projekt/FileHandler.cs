@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -33,10 +34,11 @@ namespace S1G7Projekt
         public static async Task<List<String>> LoadHusNrListeJsonAsync()
         {
             string husNrsJsonString = await DeserializeNotesFileAsync(HusNrListeFile);
-            return (List<String>)JsonConvert.DeserializeObject(husNrsJsonString, typeof(List<String>));
+            return (List<String>) JsonConvert.DeserializeObject(husNrsJsonString, typeof(List<String>));
         }
 
         #endregion
+
         #region Tilmeldspisning
 
         public static async void SaveTilmeldingJsonAsync(Dictionary<string, List<string>> Tilmeldspisning)
@@ -44,15 +46,18 @@ namespace S1G7Projekt
             string TilmeldAsJsonString = JsonConvert.SerializeObject(Tilmeldspisning);
             SerializeNotesFileAsync(TilmeldAsJsonString, TilmeldspisningListeFile);
         }
-        
+
         public static async Task<Dictionary<string, List<string>>> LoadTilmeldingJsonAsync()
         {
             string tilmeldingJsonString = await DeserializeNotesFileAsync(TilmeldspisningListeFile);
-            return (Dictionary<string, List<string>>)JsonConvert.DeserializeObject(tilmeldingJsonString, typeof(Dictionary<string, List<string>>));
+            return
+                (Dictionary<string, List<string>>)
+                JsonConvert.DeserializeObject(tilmeldingJsonString, typeof(Dictionary<string, List<string>>));
         }
-        
+
 
         #endregion
+
         #region Bruger
 
         public static async void SaveBrugerJsonAsync(ObservableCollection<Bruger> Bruger)
@@ -64,10 +69,13 @@ namespace S1G7Projekt
         public static async Task<ObservableCollection<Bruger>> LoadBrugerJsonAsync()
         {
             string BrugersJsonString = await DeserializeNotesFileAsync(BrugerListeFile);
-            return (ObservableCollection<Bruger>)JsonConvert.DeserializeObject(BrugersJsonString, typeof(ObservableCollection<Bruger>));
+            return
+                (ObservableCollection<Bruger>)
+                JsonConvert.DeserializeObject(BrugersJsonString, typeof(ObservableCollection<Bruger>));
         }
 
         #endregion
+
         #region MandagJobList
 
         public static async void SaveMandagJobListJsonAsync(List<string> MandagList)
@@ -79,10 +87,11 @@ namespace S1G7Projekt
         public static async Task<List<string>> LoadMandagJobListJsonAsync()
         {
             string MandagJobListJsonString = await DeserializeNotesFileAsync(MandagJobListeFile);
-            return (List<string>)JsonConvert.DeserializeObject(MandagJobListJsonString, typeof(List<string>));
+            return (List<string>) JsonConvert.DeserializeObject(MandagJobListJsonString, typeof(List<string>));
         }
 
         #endregion
+
         #region TirsdagJobList
 
         public static async void SaveTirsdagJobListJsonAsync(List<string> TirsdagList)
@@ -94,10 +103,11 @@ namespace S1G7Projekt
         public static async Task<List<string>> LoadTirsdagJobListJsonAsync()
         {
             string TirsdagJsonString = await DeserializeNotesFileAsync(TirsdagJobListeFile);
-            return (List<string>)JsonConvert.DeserializeObject(TirsdagJsonString, typeof(List<string>));
+            return (List<string>) JsonConvert.DeserializeObject(TirsdagJsonString, typeof(List<string>));
         }
 
         #endregion
+
         #region OnsdagJobList
 
         public static async void SaveOnsdagJobListJsonAsync(List<string> OnsdagList)
@@ -109,10 +119,11 @@ namespace S1G7Projekt
         public static async Task<List<string>> LoadOnsdagJobListJsonAsync()
         {
             string OnsdagJsonString = await DeserializeNotesFileAsync(OnsdagJobListeFile);
-            return (List<string>)JsonConvert.DeserializeObject(OnsdagJsonString, typeof(List<string>));
+            return (List<string>) JsonConvert.DeserializeObject(OnsdagJsonString, typeof(List<string>));
         }
 
         #endregion
+
         #region TorsdagJobList
 
         public static async void SaveTorsdagJobListJsonAsync(List<string> TorsdagList)
@@ -124,10 +135,11 @@ namespace S1G7Projekt
         public static async Task<List<string>> LoadTorsdagJobListJsonAsync()
         {
             string TorsdagJsonString = await DeserializeNotesFileAsync(TorsdagJobListeFile);
-            return (List<string>)JsonConvert.DeserializeObject(TorsdagJsonString, typeof(List<string>));
+            return (List<string>) JsonConvert.DeserializeObject(TorsdagJsonString, typeof(List<string>));
         }
 
         #endregion
+
         #region RetJobList
 
         public static async void SaveRetListJsonAsync(List<string> RetList)
@@ -139,10 +151,11 @@ namespace S1G7Projekt
         public static async Task<List<string>> LoadRetListJsonAsync()
         {
             string RetJsonString = await DeserializeNotesFileAsync(RetListeFile);
-            return (List<string>)JsonConvert.DeserializeObject(RetJsonString, typeof(List<string>));
+            return (List<string>) JsonConvert.DeserializeObject(RetJsonString, typeof(List<string>));
         }
 
         #endregion
+
         #region ChefBetaling
 
         public static async void SaveChefBetalingJsonAsync(double[] ChefBetaling)
@@ -154,7 +167,7 @@ namespace S1G7Projekt
         public static async Task<double[]> LoadChefBetalingJsonAsync()
         {
             string ChefBetalingJsonString = await DeserializeNotesFileAsync(ChefBetalingFile);
-            return (double[])JsonConvert.DeserializeObject(ChefBetalingJsonString, typeof(double[]));
+            return (double[]) JsonConvert.DeserializeObject(ChefBetalingJsonString, typeof(double[]));
         }
 
         #endregion
@@ -170,8 +183,19 @@ namespace S1G7Projekt
 
         public static async Task<string> DeserializeNotesFileAsync(string fileName)
         {
-            StorageFile localFile = await ApplicationData.Current.LocalFolder.GetFileAsync(fileName);
+            StorageFile localFile;
+            try
+            {
+                localFile = await ApplicationData.Current.LocalFolder.GetFileAsync(fileName);
+                
+            }
+            catch (FileNotFoundException)
+            {
+                ApplicationData.Current.LocalFolder.CreateFileAsync(fileName, CreationCollisionOption.ReplaceExisting);
+                localFile = await ApplicationData.Current.LocalFolder.GetFileAsync(fileName);
+            }
             return await FileIO.ReadTextAsync(localFile);
+            
         }
 
         #endregion
