@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,7 +12,7 @@ namespace S1G7Projekt
     {
         public int BrugerID { get; set; }
         public String BrugerNavn { get; set; }
-        public List<Bruger> BrugerListe;
+        public ObservableCollection<Bruger> BrugerListe;
 
 
         public Bruger()
@@ -23,7 +24,12 @@ namespace S1G7Projekt
         {
             BrugerID = brugerId;
             BrugerNavn = brugerNavn;
-            BrugerListe = FileHandler.LoadHusNrListeJsonAsync();
+            Load();
+        }
+
+        public async void Load()
+        {
+            BrugerListe = await FileHandler.LoadBrugerJsonAsync();
         }
     }
 }
