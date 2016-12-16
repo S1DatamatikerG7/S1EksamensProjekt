@@ -31,5 +31,10 @@ namespace S1G7Projekt
         {
             BrugerListe = await FileHandler.LoadBrugerJsonAsync();
         }
+
+        public override string ToString()
+        {
+            return BrugerNavn;
+        }
     }
 }
