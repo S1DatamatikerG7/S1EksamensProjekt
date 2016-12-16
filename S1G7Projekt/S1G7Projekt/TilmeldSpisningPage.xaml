@@ -19,16 +19,16 @@
             <TextBlock x:Name="UgeTekst" HorizontalAlignment="Left" Margin="1071,83,0,0" TextWrapping="Wrap" Text="Uge:" VerticalAlignment="Top" Foreground="White" FontSize="35"/>
             <TextBlock x:Name="UgeNr" HorizontalAlignment="Left" Margin="1147,83,0,0" TextWrapping="Wrap" Text="UgeNr" VerticalAlignment="Top" FontSize="35"/>
             <TextBlock x:Name="SideNavnOverskrift" TextWrapping="Wrap" Text="Tilmeld Spisning" VerticalAlignment="Top" FontSize="50" Margin="455,35,455,0" Foreground="White"/>
-            <ComboBox x:Name="HusSelect" Margin="320,246,0,0" Width="150"/>
-            <ComboBox x:Name="DagSelect" Margin="320,173,0,0" Width="150"/>
+            <ComboBox x:Name="HusSelect" Margin="320,246,0,0" Width="150" ItemsSource="{Binding HusNr, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <ComboBox x:Name="DagSelect" Margin="320,173,0,0" Width="150" ItemsSource="{Binding Dag, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
-            <TextBox x:Name="Voksen" HorizontalAlignment="Left" Margin="320,334,0,354" TextWrapping="Wrap" Text="TextBox" Width="150" d:LayoutOverrides="Height, TopPosition, BottomPosition"/>
+            <TextBox x:Name="Voksen" HorizontalAlignment="Left" Margin="320,334,0,354" TextWrapping="Wrap" Text="{Binding AntalVoksne, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="150" d:LayoutOverrides="Height, TopPosition, BottomPosition"/>
 
-            <TextBox x:Name="Born_7_15" HorizontalAlignment="Left" Margin="320,0,0,281" TextWrapping="Wrap" Text="TextBox" Width="150" VerticalAlignment="Bottom"/>
+            <TextBox x:Name="Born_7_15" HorizontalAlignment="Left" Margin="320,0,0,281" TextWrapping="Wrap" Text="{Binding AntalBorn7_15, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="150" VerticalAlignment="Bottom"/>
 
-            <TextBox x:Name="Born_3_6" HorizontalAlignment="Left" Margin="320,0,0,213" TextWrapping="Wrap" Text="TextBox" Width="150" VerticalAlignment="Bottom"/>
+            <TextBox x:Name="Born_3_6" HorizontalAlignment="Left" Margin="320,0,0,213" TextWrapping="Wrap" Text="{Binding AntalBorn3_6, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="150" VerticalAlignment="Bottom"/>
 
-            <TextBox x:Name="Born_u3" HorizontalAlignment="Left" Margin="320,0,0,141" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Bottom" Width="150"/>
+            <TextBox x:Name="Born_u3" HorizontalAlignment="Left" Margin="320,0,0,141" TextWrapping="Wrap" Text="{Binding AntalBornU3, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Bottom" Width="150"/>
 
             <TextBlock x:Name="Voksen_tb" HorizontalAlignment="Left" Margin="320,302,0,0" TextWrapping="Wrap" Text="Antal Voksende:" VerticalAlignment="Top" FontSize="20" Width="150"/>
 
@@ -56,7 +56,13 @@
 
             <TextBlock x:Name="textBlock_Copy" HorizontalAlignment="Left" Margin="320,214,0,0" TextWrapping="Wrap" Text="Vælg Husnr:" VerticalAlignment="Top" FontSize="20"/>
             <CheckBox x:Name="Losdag" Content="Lås Dag" Margin="500,173,0,0" VerticalAlignment="Top"/>
-            <Button x:Name="Gem" Content="Gem" HorizontalAlignment="Left" Margin="320,0,0,90" VerticalAlignment="Bottom" Width="150"/>
+            <Button x:Name="Gem" Content="Gem" HorizontalAlignment="Left" Margin="320,0,0,90" VerticalAlignment="Bottom" Width="150">
+                <Interactivity:Interaction.Behaviors>
+                    <Core:EventTriggerBehavior EventName="Click">
+                        <Core:InvokeCommandAction Command="{Binding RelayCommandGem}"/>
+                    </Core:EventTriggerBehavior>
+                </Interactivity:Interaction.Behaviors>
+            </Button>
             <Button x:Name="MenuUgePlan" Content="" HorizontalAlignment="Left" Margin="19,159,0,0" VerticalAlignment="Top" Height="47" Width="187">
                 <Interactivity:Interaction.Behaviors>
                     <Core:EventTriggerBehavior EventName="Click">

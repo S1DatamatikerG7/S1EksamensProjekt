@@ -17,7 +17,7 @@
             <TextBlock x:Name="UgeTekst" HorizontalAlignment="Left" Margin="1071,83,0,0" TextWrapping="Wrap" Text="Uge:" VerticalAlignment="Top" Foreground="White" FontSize="35"/>
             <TextBlock x:Name="UgeNr" HorizontalAlignment="Left" Margin="1147,83,0,0" TextWrapping="Wrap" Text="UgeNr" VerticalAlignment="Top" FontSize="35"/>
             <TextBlock x:Name="SideNavnOverskrift" TextWrapping="Wrap" Text="Betaling" VerticalAlignment="Top" FontSize="50" Margin="550,35,550,0" Foreground="White"/>
-            <ComboBox x:Name="comboBox" Margin="563,159,557,0" FontSize="20" HorizontalAlignment="Stretch" d:LayoutOverrides="LeftPosition, RightPosition"/>
+            <ComboBox x:Name="comboBox" Margin="563,159,557,0" FontSize="20" HorizontalAlignment="Stretch" d:LayoutOverrides="LeftPosition, RightPosition" ItemsSource="{Binding HusNr, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
             <TextBlock x:Name="Man" HorizontalAlignment="Left" Margin="325,260,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20">
                 <Run Text="Mandag"/>
                 <Run Text=":"/>
@@ -39,8 +39,8 @@
                 <LineBreak/>
                 <Run/>
             </TextBlock>
-            <TextBlock x:Name="penge1" HorizontalAlignment="Left" Margin="456,260,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="Penge" FontSize="20" RenderTransformOrigin="-0.034,0.556"/>
-            <TextBlock x:Name="penge2" HorizontalAlignment="Left" Margin="456,322,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="Penge" Height="28" FontSize="20">
+            <TextBlock x:Name="penge1" HorizontalAlignment="Left" Margin="456,260,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="{Binding BetalingMan, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" FontSize="20" RenderTransformOrigin="-0.034,0.556"/>
+            <TextBlock x:Name="penge2" HorizontalAlignment="Left" Margin="456,322,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="{Binding BetalingTir, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="28" FontSize="20">
                 <TextBlock.Foreground>
                     <LinearGradientBrush EndPoint="2.392,3.273" StartPoint="0.972,0.927">
                         <GradientStop Color="Black" Offset="0"/>
@@ -48,16 +48,16 @@
                     </LinearGradientBrush>
                 </TextBlock.Foreground>
             </TextBlock>
-            <TextBlock x:Name="penge3" HorizontalAlignment="Left" Margin="456,0,0,313" TextWrapping="Wrap" VerticalAlignment="Bottom" Text="penge" FontSize="20" d:LayoutOverrides="VerticalAlignment"/>
-            <TextBlock x:Name="penge4" HorizontalAlignment="Left" Margin="456,0,0,248" TextWrapping="Wrap" VerticalAlignment="Bottom" FontSize="20" RenderTransformOrigin="0.5,0.515" Text="penge"/>
+            <TextBlock x:Name="penge3" HorizontalAlignment="Left" Margin="456,0,0,313" TextWrapping="Wrap" VerticalAlignment="Bottom" Text="{Binding BetalingOns, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" FontSize="20" d:LayoutOverrides="VerticalAlignment"/>
+            <TextBlock x:Name="penge4" HorizontalAlignment="Left" Margin="456,0,0,248" TextWrapping="Wrap" VerticalAlignment="Bottom" FontSize="20" RenderTransformOrigin="0.5,0.515" Text="{Binding BetalingTor, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
             <TextBlock x:Name="total" HorizontalAlignment="Left" Margin="456,0,0,192" TextWrapping="Wrap" Text="Total" VerticalAlignment="Bottom" FontSize="20"/>
             <TextBlock x:Name="Husnr" Margin="564,132,614,0" TextWrapping="Wrap" Text="Vælg Husnr" VerticalAlignment="Top" FontSize="20" d:LayoutOverrides="Width, LeftPosition, RightPosition"/>
             <TextBlock x:Name="chef" Margin="0,210,198,0" TextWrapping="Wrap" Text="ChefKok:" VerticalAlignment="Top" FontSize="20" HorizontalAlignment="Right" Width="110"/>
             <TextBlock x:Name="kunde" HorizontalAlignment="Left" Margin="325,210,0,0" TextWrapping="Wrap" Text="Kunde:" VerticalAlignment="Top" FontSize="20"/>
-            <TextBox x:Name="chef_man" Margin="0,258,170,0" TextWrapping="Wrap" Text="Penge Brugt" VerticalAlignment="Top" HorizontalAlignment="Right" Width="138"/>
-            <TextBox x:Name="chef_tir" Margin="0,316,170,0" TextWrapping="Wrap" Text="Penge Brugt" VerticalAlignment="Top" HorizontalAlignment="Right" Width="138"/>
-            <TextBox x:Name="chef_ons" Margin="0,0,170,310" TextWrapping="Wrap" Text="Penge Brugt" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="138"/>
-            <TextBox x:Name="chef_tor" Margin="0,0,170,245" TextWrapping="Wrap" Text="Penge Brugt" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="138"/>
+            <TextBox x:Name="chef_man" Margin="0,258,170,0" TextWrapping="Wrap" Text="{Binding ChefBetalingMan, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" HorizontalAlignment="Right" Width="138"/>
+            <TextBox x:Name="chef_tir" Margin="0,316,170,0" TextWrapping="Wrap" Text="{Binding ChefBetalingTir, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" HorizontalAlignment="Right" Width="138"/>
+            <TextBox x:Name="chef_ons" Margin="0,0,170,310" TextWrapping="Wrap" Text="{Binding ChefBetalingTir, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="138"/>
+            <TextBox x:Name="chef_tor" Margin="0,0,170,245" TextWrapping="Wrap" Text="{Binding ChefBetalingTor, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="138"/>
             <Button x:Name="GemKnap" Content="Gem" HorizontalAlignment="Right" Margin="0,0,255,201" VerticalAlignment="Bottom">
                 <Interactivity:Interaction.Behaviors>
                     <Core:EventTriggerBehavior EventName="Click">
