@@ -8,7 +8,6 @@ using System.Windows.Input;
 using System.Xml;
 using Windows.Devices.Bluetooth.Advertisement;
 using Windows.UI.Xaml.Controls.Primitives;
-using NoteModelOpg33;
 
 namespace S1G7Projekt
 {
