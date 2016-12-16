@@ -131,7 +131,7 @@ namespace S1G7Projekt
             RetList[3] = RetTorsdag;
             FileHandler.SaveRetListJsonAsync(RetList);
         }
-                                            //TODO: for tilfoej og fjern skal laves færdigt
+
         public void TilfoejJob()
         {
             switch (DagList[SelectedDag])
