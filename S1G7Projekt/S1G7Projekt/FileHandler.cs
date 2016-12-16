@@ -44,13 +44,13 @@ namespace S1G7Projekt
             string TilmeldAsJsonString = JsonConvert.SerializeObject(Tilmeldspisning);
             SerializeNotesFileAsync(TilmeldAsJsonString, TilmeldspisningListeFile);
         }
-        /*
-        public static async Task<List<String>> LoadTilmeldingJsonAsync()
+        
+        public static async Task<Dictionary<string, List<string>>> LoadTilmeldingJsonAsync()
         {
             string tilmeldingJsonString = await DeserializeNotesFileAsync(TilmeldspisningListeFile);
             return (Dictionary<string, List<string>>)JsonConvert.DeserializeObject(tilmeldingJsonString, typeof(Dictionary<string, List<string>>));
         }
-        */
+        
 
         #endregion
         #region Bruger

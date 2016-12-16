@@ -91,7 +91,7 @@ namespace S1G7Projekt
         {
             if (SelectedHus != -1 & SelectedDag != -1)
             {
-                Dictionary<String, List<String>> TempLoad = new Dictionary<string, List<string>>(); //= await FileHandler.LoadTilmeldingJsonAsync();
+                Dictionary<String, List<String>> TempLoad = await FileHandler.LoadTilmeldingJsonAsync();
 
                 foreach (KeyValuePair<string, List<string>> pair in TempLoad)
                 {

@@ -10,6 +10,9 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid HorizontalAlignment="Left" Height="720" VerticalAlignment="Top" Width="1280">
+            <Grid.DataContext>
+                <local:VMOpretBruger/>
+            </Grid.DataContext>
             <Image x:Name="Baggrund" HorizontalAlignment="Left" Height="720" VerticalAlignment="Top" Width="1280" Source="Billeder/UI_Done.png"/>
             <TextBlock x:Name="SideNavnOverskrift" TextWrapping="Wrap" Text="Opret Bruger" VerticalAlignment="Top" FontSize="50" Margin="495,35,495,0" Foreground="White"/>
             <ListView x:Name="BrugerList" HorizontalAlignment="Left" Height="530" Margin="300,170,0,0" VerticalAlignment="Top" Width="250" Background="#FF8F8F8F"/>
