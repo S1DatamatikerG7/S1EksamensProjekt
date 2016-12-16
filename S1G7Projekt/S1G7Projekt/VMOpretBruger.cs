@@ -58,7 +58,8 @@ namespace S1G7Projekt
             _brugerListe = new ObservableCollection<Bruger>();
 
             BrugerNavn = null;
-            
+            ID = 0;
+
         }
 
         public void OpretBruger()
@@ -68,13 +69,13 @@ namespace S1G7Projekt
             {
                 throw new ArgumentException("Brugernavn mangler");
             }   
-            BrugerListe.Add(new Bruger(ID, BrugerNavn));
+            BrugerListe.Add(new Bruger(ID, BrugerNavn)); OnPropertyChanged();
             FileHandler.SaveBrugerJsonAsync(_brugerListe);
         }       
 
         public void FjernBruger()
         {
-            BrugerListe.RemoveAt(ID);
+            BrugerListe.RemoveAt(ID); OnPropertyChanged();
             FileHandler.SaveBrugerJsonAsync(_brugerListe);
         }   
     }

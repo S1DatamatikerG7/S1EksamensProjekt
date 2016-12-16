@@ -90,10 +90,13 @@ namespace S1G7Projekt
             Navn = null;
             UgeNr = UgeHandler.GetNaesteUge();
 
-            RetMandag = RetList[0];
-            RetTirsdag = RetList[1];
-            RetOnsdag = RetList[2];
-            RetTorsdag = RetList[3];
+            if (RetList != null)
+            {
+                RetMandag = RetList[0];
+                RetTirsdag = RetList[1];
+                RetOnsdag = RetList[2];
+                RetTorsdag = RetList[3];
+            }
         }
         
         public async void LoadAlt()
