@@ -8,8 +8,8 @@ namespace S1G7Projekt
 {
     class UgeHandler
     {
-        public int Uge { get; set; }
-        public List<string> DagListe { get; set; }
+        private static int Uge { get; set; }
+        private static List<string> DagListe { get; set; }
 
         public UgeHandler()
         {
@@ -21,12 +21,12 @@ namespace S1G7Projekt
             DagListe[3] = "Torsdag";
         }
 
-        public int GetNaesteUge()
+        public static int GetNaesteUge()
         {
             return Uge;
         }
 
-        public List<string> GetDagListe()
+        public static List<string> GetDagListe()
         {
             return DagListe;
         }
