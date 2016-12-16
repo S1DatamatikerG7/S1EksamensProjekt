@@ -55,26 +55,31 @@ namespace S1G7Projekt
             _relayCommandOpretBruger = new RelayCommand(OpretBruger);
             _relayCommandFjernBruger = new RelayCommand(FjernBruger);
 
-            _brugerListe = new ObservableCollection<Bruger>();
-
-            BrugerNavn = null;
             
+            LoadBrugerListe();
+            BrugerNavn = null;
+
+        }
+
+        public async void LoadBrugerListe()
+        {
+            _brugerListe = await FileHandler.LoadBrugerJsonAsync();
         }
 
         public void OpretBruger()
         {
-            ID += ID;
             if (string.IsNullOrWhiteSpace(BrugerNavn))
             {
                 throw new ArgumentException("Brugernavn mangler");
             }   
-            BrugerListe.Add(new Bruger(ID, BrugerNavn));
+            BrugerListe.Add(new Bruger(ID, BrugerNavn)); OnPropertyChanged();
             FileHandler.SaveBrugerJsonAsync(_brugerListe);
+            ID++;
         }       
 
         public void FjernBruger()
         {
-            BrugerListe.RemoveAt(ID);
+            BrugerListe.RemoveAt(ID); OnPropertyChanged();
             FileHandler.SaveBrugerJsonAsync(_brugerListe);
         }   
     }
