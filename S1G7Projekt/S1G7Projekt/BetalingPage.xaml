@@ -58,7 +58,13 @@
             <TextBox x:Name="chef_tir" Margin="0,316,170,0" TextWrapping="Wrap" Text="Penge Brugt" VerticalAlignment="Top" HorizontalAlignment="Right" Width="138"/>
             <TextBox x:Name="chef_ons" Margin="0,0,170,310" TextWrapping="Wrap" Text="Penge Brugt" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="138"/>
             <TextBox x:Name="chef_tor" Margin="0,0,170,245" TextWrapping="Wrap" Text="Penge Brugt" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="138"/>
-            <Button x:Name="button" Content="Gem" HorizontalAlignment="Right" Margin="0,0,255,201" VerticalAlignment="Bottom"/>
+            <Button x:Name="GemKnap" Content="Gem" HorizontalAlignment="Right" Margin="0,0,255,201" VerticalAlignment="Bottom">
+                <Interactivity:Interaction.Behaviors>
+                    <Core:EventTriggerBehavior EventName="Click">
+                        <Core:InvokeCommandAction/>
+                    </Core:EventTriggerBehavior>
+                </Interactivity:Interaction.Behaviors>
+            </Button>
             <Button x:Name="MenuUgePlan" Content="" HorizontalAlignment="Left" Margin="19,159,0,0" VerticalAlignment="Top" Height="47" Width="187">
                 <Interactivity:Interaction.Behaviors>
                     <Core:EventTriggerBehavior EventName="Click">
