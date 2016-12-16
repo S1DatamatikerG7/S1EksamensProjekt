@@ -17,27 +17,45 @@
 
             <Image x:Name="Baggrund" HorizontalAlignment="Left" Height="720" VerticalAlignment="Top" Width="1280" Source="Billeder/UI_Done.png"/>
             <TextBlock x:Name="UgeTekst" HorizontalAlignment="Left" Margin="1071,83,0,0" TextWrapping="Wrap" Text="Uge:" VerticalAlignment="Top" Foreground="White" FontSize="35"/>
-            <TextBlock x:Name="UgeNr" HorizontalAlignment="Left" Margin="1147,83,0,0" TextWrapping="Wrap" Text="UgeNr" VerticalAlignment="Top" FontSize="35"/>
+            <TextBlock x:Name="UgeNr" HorizontalAlignment="Left" Margin="1147,83,0,0" TextWrapping="Wrap" Text="{Binding UgeNr}" VerticalAlignment="Top" FontSize="35"/>
             <TextBlock x:Name="SideNavnOverskrift" TextWrapping="Wrap" Text="Næste Uge Plan" VerticalAlignment="Top" FontSize="50" Margin="460,35,460,0" Foreground="White"/>
-            <Button x:Name="RetAddRedigere" Content="Tilføj/Redigere" HorizontalAlignment="Left" Margin="900,350,0,0" VerticalAlignment="Top" FontSize="20" Width="160"/>
-            <Button x:Name="JobAdd" Content="Tilføj" HorizontalAlignment="Left" Margin="1125,360,0,0" VerticalAlignment="Top" Height="40" FontSize="20" Width="120"/>
-            <Button x:Name="JobRemove" Content="Fjern" HorizontalAlignment="Left" Margin="1125,420,0,0" VerticalAlignment="Top" Height="40" Width="120" FontSize="20"/>
-            <ComboBox x:Name="DagDD" HorizontalAlignment="Left" Margin="1035,170,0,0" VerticalAlignment="Top" Width="120" FontSize="20"/>
-            <ComboBox x:Name="JobDD" HorizontalAlignment="Left" Margin="1125,230,0,0" VerticalAlignment="Top" Width="120" FontSize="20"/>
-            <TextBox x:Name="RetTekstbox" HorizontalAlignment="Left" Margin="900,230,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" FontSize="20" Width="160" Height="90"/>
-            <TextBox x:Name="JobTekstBox" HorizontalAlignment="Left" Margin="1125,295,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Height="40" Width="120" FontSize="20"/>
+            <Button x:Name="RetAddRedigere" Content="Tilføj/Redigere" HorizontalAlignment="Left" Margin="900,350,0,0" VerticalAlignment="Top" FontSize="20" Width="160">
+                <Interactivity:Interaction.Behaviors>
+                    <Core:EventTriggerBehavior EventName="Click">
+                        <Core:CallMethodAction MethodName="{Binding RelayCommandTilfoejRedigereRet}"/>
+                    </Core:EventTriggerBehavior>
+                </Interactivity:Interaction.Behaviors>
+            </Button>
+            <Button x:Name="JobAdd" Content="Tilføj" HorizontalAlignment="Left" Margin="1125,360,0,0" VerticalAlignment="Top" Height="40" FontSize="20" Width="120">
+                <Interactivity:Interaction.Behaviors>
+                    <Core:EventTriggerBehavior EventName="Click">
+                        <Core:CallMethodAction MethodName="{Binding RelayCommandTilfoejJob}"/>
+                    </Core:EventTriggerBehavior>
+                </Interactivity:Interaction.Behaviors>
+            </Button>
+            <Button x:Name="JobRemove" Content="Fjern" HorizontalAlignment="Left" Margin="1125,420,0,0" VerticalAlignment="Top" Height="40" Width="120" FontSize="20">
+                <Interactivity:Interaction.Behaviors>
+                    <Core:EventTriggerBehavior EventName="Click">
+                        <Core:CallMethodAction MethodName="{Binding RelayCommandFjernJob}"/>
+                    </Core:EventTriggerBehavior>
+                </Interactivity:Interaction.Behaviors>
+            </Button>
+            <ComboBox x:Name="DagDD" HorizontalAlignment="Left" Margin="1035,170,0,0" VerticalAlignment="Top" Width="120" FontSize="20" ItemsSource="{Binding DagList, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <ComboBox x:Name="JobDD" HorizontalAlignment="Left" Margin="1125,230,0,0" VerticalAlignment="Top" Width="120" FontSize="20" ItemsSource="{Binding JobTypeList, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBox x:Name="RetTekstbox" HorizontalAlignment="Left" Margin="900,230,0,0" TextWrapping="Wrap" Text="{Binding RetTekstBox, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" FontSize="20" Width="160" Height="90"/>
+            <TextBox x:Name="JobTekstBox" HorizontalAlignment="Left" Margin="1125,295,0,0" TextWrapping="Wrap" Text="{Binding Navn, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Height="40" Width="120" FontSize="20"/>
             <TextBlock x:Name="MandagTekstBlock" HorizontalAlignment="Left" Margin="250,170,0,0" TextWrapping="Wrap" Text="Mandag" VerticalAlignment="Top" FontSize="20"/>
             <TextBlock x:Name="TirsdagTekstBlock" HorizontalAlignment="Left" Margin="400,170,0,0" TextWrapping="Wrap" Text="Tirsdag" VerticalAlignment="Top" FontSize="20"/>
             <TextBlock x:Name="OnsdagTekstBlock" HorizontalAlignment="Left" Margin="550,170,0,0" TextWrapping="Wrap" Text="Onsdag" VerticalAlignment="Top" FontSize="20"/>
             <TextBlock x:Name="TorsdagTekstBlock" HorizontalAlignment="Left" Margin="700,170,0,0" TextWrapping="Wrap" Text="Torsdag" VerticalAlignment="Top" FontSize="20"/>
-            <TextBlock x:Name="RetMandagTekst" HorizontalAlignment="Left" Margin="250,200,0,0" TextWrapping="Wrap" Text="RetMandag" VerticalAlignment="Top" FontSize="20"/>
-            <TextBlock x:Name="RetTirsdag" HorizontalAlignment="Left" Margin="400,200,0,0" TextWrapping="Wrap" Text="RetTirsdag" VerticalAlignment="Top" FontSize="20"/>
-            <TextBlock x:Name="RetOnsdag" HorizontalAlignment="Left" Margin="550,200,0,0" TextWrapping="Wrap" Text="RetOnsdag" VerticalAlignment="Top" FontSize="20"/>
-            <TextBlock x:Name="RetTorsdag" HorizontalAlignment="Left" Margin="700,200,0,0" TextWrapping="Wrap" Text="RetTorsdag" VerticalAlignment="Top" FontSize="20"/>
-            <ListView x:Name="MandagList" HorizontalAlignment="Left" Height="450" Margin="250,230,0,0" VerticalAlignment="Top" Width="140" Background="#FF8F8F8F"/>
-            <ListView x:Name="TirsdagList" HorizontalAlignment="Left" Height="450" Margin="400,230,0,0" VerticalAlignment="Top" Width="140" Background="#FF8F8F8F"/>
-            <ListView x:Name="OnsdagList" HorizontalAlignment="Left" Height="450" Margin="550,230,0,0" VerticalAlignment="Top" Width="140" Background="#FF8F8F8F"/>
-            <ListView x:Name="TorsdagList" HorizontalAlignment="Left" Height="450" Margin="700,230,0,0" VerticalAlignment="Top" Width="140" Background="#FF8F8F8F"/>
+            <TextBlock x:Name="RetMandagTekst" HorizontalAlignment="Left" Margin="250,200,0,0" TextWrapping="Wrap" Text="{Binding RetMandag, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" FontSize="20"/>
+            <TextBlock x:Name="RetTirsdag" HorizontalAlignment="Left" Margin="400,200,0,0" TextWrapping="Wrap" Text="{Binding RetTirsdag, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" FontSize="20"/>
+            <TextBlock x:Name="RetOnsdag" HorizontalAlignment="Left" Margin="550,200,0,0" TextWrapping="Wrap" Text="{Binding RetOnsdag, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" FontSize="20"/>
+            <TextBlock x:Name="RetTorsdag" HorizontalAlignment="Left" Margin="700,200,0,0" TextWrapping="Wrap" Text="{Binding RetTorsdag, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" FontSize="20"/>
+            <ListView x:Name="MandagList" HorizontalAlignment="Left" Height="450" Margin="250,230,0,0" VerticalAlignment="Top" Width="140" Background="#FF8F8F8F" ItemsSource="{Binding MandagList}"/>
+            <ListView x:Name="TirsdagList" HorizontalAlignment="Left" Height="450" Margin="400,230,0,0" VerticalAlignment="Top" Width="140" Background="#FF8F8F8F" ItemsSource="{Binding TirsdagList}"/>
+            <ListView x:Name="OnsdagList" HorizontalAlignment="Left" Height="450" Margin="550,230,0,0" VerticalAlignment="Top" Width="140" Background="#FF8F8F8F" ItemsSource="{Binding OnsdagList}"/>
+            <ListView x:Name="TorsdagList" HorizontalAlignment="Left" Height="450" Margin="700,230,0,0" VerticalAlignment="Top" Width="140" Background="#FF8F8F8F" ItemsSource="{Binding TorsdagList}"/>
             <Button x:Name="MenuUgePlan" Content="" HorizontalAlignment="Left" Margin="19,159,0,0" VerticalAlignment="Top" Height="47" Width="187">
                 <Interactivity:Interaction.Behaviors>
                     <Core:EventTriggerBehavior EventName="Click">

@@ -22,6 +22,11 @@ namespace S1G7Projekt
         private static string RetListeFile = "RetListe.json";
         private static string ChefBetalingFile = "ChefBetaling.json";
 
+        public FileHandler()
+        {
+            
+        }
+
 
         #region HusListe
 
