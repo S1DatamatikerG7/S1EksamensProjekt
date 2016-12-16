@@ -58,10 +58,10 @@ namespace S1G7Projekt
         }
 
 
-        public void UdregnBetaling()
+        public async void UdregnBetaling()
         {
 
-            Dictionary<String, List<String>> TempLoad = FileHandler.LoadTilmeldingJsonAsync();
+            Dictionary<String, List<String>> TempLoad = new Dictionary<string, List<string>>(); //= await FileHandler.LoadTilmeldingJsonAsync();
             int i = 0;
             BetalingsArray = new int[TempLoad.Count, 4];
             foreach (KeyValuePair<string, List<string>> pair in TempLoad)
