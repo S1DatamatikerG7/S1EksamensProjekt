@@ -22,11 +22,27 @@ namespace S1G7Projekt
 
         #endregion
 
-        public ObservableCollection<UgeHandler> UgePlan { get; set; }
-
+        public List<string> MandagList { get; set; }
+        public List<string> TirsdagList { get; set; }
+        public List<string> OnsdagList { get; set; }
+        public List<string> TorsdagList { get; set; }
+        public List<string> RetList { get; set; }
+        public List<string> DagList { get; set; }
+        public int UgeNr { get; set; }
+        
         public VMUgePlan()
         {
-            UgePlan = new ObservableCollection<UgeHandler>();
+            DagList = new List<string>();
+            loadUgePlan();
+        }
+
+        public async void loadUgePlan()
+        {
+            RetList = await FileHandler.LoadRetListJsonAsync();
+            MandagList = await FileHandler.LoadMandagJobListJsonAsync();
+            TirsdagList = await FileHandler.LoadTirsdagJobListJsonAsync();
+            OnsdagList = await FileHandler.LoadOnsdagJobListJsonAsync();
+            TorsdagList = await FileHandler.LoadTorsdagJobListJsonAsync();
         }
 
 

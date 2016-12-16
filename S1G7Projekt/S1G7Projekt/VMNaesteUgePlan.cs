@@ -57,11 +57,13 @@ namespace S1G7Projekt
         public string RetTirsdag { get; set; }
         public string RetOnsdag { get; set; }
         public string RetTorsdag { get; set; }
+
         public List<string> RetList { get; set; }
         public List<string> MandagList { get; set; }
         public List<string> TirsdagList { get; set; }
         public List<string> OnsdagList { get; set; }
         public List<string> TorsdagList { get; set; }
+
         public int UgeNr { get; set; }
         public List<string> JobTypeList { get; set; }
         public List<string> DagList { get; set; }
