@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace NoteModelOpg33
+namespace S1G7Projekt
 {
     /// <summary>
     /// A command whose sole purpose is to relay its functionality 
