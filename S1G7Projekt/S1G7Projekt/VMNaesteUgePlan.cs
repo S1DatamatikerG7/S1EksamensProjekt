@@ -79,11 +79,9 @@ namespace S1G7Projekt
             _retJobBeskrivelser = new ObservableCollection<Job>();
             DagList = new List<string>();
             JobTypeList = new List<string>();
-            RetList = FileHandler.LoadRetListJsonAsync();
-            MandagList = FileHandler.LoadMandagJobListJsonAsync();
-            TirsdagList = FileHandler.LoadTirsdagJobListJsonAsync();
-            OnsdagList = FileHandler.LoadOnsdagJobListJsonAsync();
-            TorsdagList = FileHandler.LoadTorsdagJobListJsonAsync();
+
+            LoadAlt();
+
             RetTekstBox = null;
             Navn = null;
             UgeNr = UgeHandler.GetNaesteUge();
@@ -92,6 +90,16 @@ namespace S1G7Projekt
             RetTirsdag = RetList[1];
             RetOnsdag = RetList[2];
             RetTorsdag = RetList[3];
+        }
+        
+        public async void LoadAlt()
+        {
+            RetList = await FileHandler.LoadRetListJsonAsync();
+            MandagList = await FileHandler.LoadMandagJobListJsonAsync();
+            TirsdagList = await FileHandler.LoadTirsdagJobListJsonAsync();
+            OnsdagList = await FileHandler.LoadOnsdagJobListJsonAsync();
+            TorsdagList = await FileHandler.LoadTorsdagJobListJsonAsync();
+
         }
 
         public void TilfoejRedigereRet()
