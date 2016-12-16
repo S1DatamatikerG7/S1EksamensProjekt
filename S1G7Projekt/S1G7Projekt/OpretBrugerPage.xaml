@@ -16,7 +16,7 @@
             <Image x:Name="Baggrund" HorizontalAlignment="Left" Height="720" VerticalAlignment="Top" Width="1280" Source="Billeder/UI_Done.png"/>
             <TextBlock x:Name="SideNavnOverskrift" TextWrapping="Wrap" Text="Opret Bruger" VerticalAlignment="Top" FontSize="50" Margin="495,35,495,0" Foreground="White"/>
             <ListView x:Name="BrugerList" HorizontalAlignment="Left" Height="530" Margin="300,170,0,0" VerticalAlignment="Top" Width="250" Background="#FF8F8F8F" ItemsSource="{Binding BrugerListe}"/>
-            <TextBox x:Name="BrugerNavn_HusNr" HorizontalAlignment="Left" Margin="575,170,0,0" TextWrapping="Wrap" Text="{Binding BrugerNavn, Mode=TwoWay}" VerticalAlignment="Top" Width="210" FontSize="20" Height="40"/>
+            <TextBox x:Name="BrugerNavn_HusNr" HorizontalAlignment="Left" Margin="575,170,0,0" TextWrapping="Wrap" Text="{Binding BrugerNavn, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="210" FontSize="20" Height="40"/>
             <Button x:Name="Add" Content="Tilføj Bruger" HorizontalAlignment="Left" Margin="575,240,0,0" VerticalAlignment="Top" Background="#FF858585" Foreground="White" Width="100">
                 <Interactivity:Interaction.Behaviors>
                     <Core:EventTriggerBehavior EventName="Click">
