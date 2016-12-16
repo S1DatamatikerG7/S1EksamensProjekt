@@ -12,24 +12,21 @@ namespace S1G7Projekt
     {
         public int BrugerID { get; set; }
         public String BrugerNavn { get; set; }
-        public ObservableCollection<Bruger> BrugerListe;
+        //public ObservableCollection<Bruger> BrugerListe;
 
 
-        public Bruger()
-        {
-            
-        }
+        
 
         public Bruger(int brugerId, string brugerNavn)
         {
             BrugerID = brugerId;
             BrugerNavn = brugerNavn;
-            Load();
+            //Load();
         }
 
           public async void Load()
         {
-            BrugerListe = await FileHandler.LoadBrugerJsonAsync();
+            //BrugerListe = await FileHandler.LoadBrugerJsonAsync();
         }
 
         public override string ToString()

@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
+using System.Net;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.UI.Xaml.Controls.Primitives;
 
 namespace S1G7Projekt
 {
@@ -16,6 +18,7 @@ namespace S1G7Projekt
         private ObservableCollection<Bruger> _brugerListe;
         public string BrugerNavn { get; set; }
         public int ID { get; set; }
+        public int SelectedID { get; set; }
 
         public ObservableCollection<Bruger> BrugerListe
         {
@@ -51,22 +54,30 @@ namespace S1G7Projekt
 
         public VMOpretBruger()
         {
-            
+
             _relayCommandOpretBruger = new RelayCommand(OpretBruger);
             _relayCommandFjernBruger = new RelayCommand(FjernBruger);
-
+            BrugerListe = new ObservableCollection<Bruger>();
             
             LoadBrugerListe();
             BrugerNavn = null;
 
+            ID = BrugerListe.Count;
         }
 
         public async void LoadBrugerListe()
         {
-            _brugerListe = await FileHandler.LoadBrugerJsonAsync();
-            if (_brugerListe == null)
+            ObservableCollection<Bruger> tempBrugers = await FileHandler.LoadBrugerJsonAsync();
+            if (tempBrugers == null)
             {
-                _brugerListe = new ObservableCollection<Bruger>();
+                BrugerListe = new ObservableCollection<Bruger>();
+            }
+            else
+            {
+                foreach (Bruger bruger in tempBrugers)
+                {
+                    BrugerListe.Add(bruger);
+                }
             }
         }
 
@@ -76,15 +87,18 @@ namespace S1G7Projekt
             {
                 throw new ArgumentException("Brugernavn mangler");
             }   
-            BrugerListe.Add(new Bruger(ID, BrugerNavn)); OnPropertyChanged();
+            _brugerListe.Add(new Bruger(ID, BrugerNavn)); OnPropertyChanged();
             FileHandler.SaveBrugerJsonAsync(_brugerListe);
             ID++;
         }       
 
         public void FjernBruger()
         {
-            BrugerListe.RemoveAt(ID); OnPropertyChanged();
-            FileHandler.SaveBrugerJsonAsync(_brugerListe);
+            if (SelectedID != -1)
+            {
+                BrugerListe.RemoveAt(SelectedID); OnPropertyChanged();
+                FileHandler.SaveBrugerJsonAsync(_brugerListe);
+            }
         }   
     }
 }

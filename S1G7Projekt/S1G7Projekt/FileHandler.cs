@@ -74,9 +74,7 @@ namespace S1G7Projekt
         public static async Task<ObservableCollection<Bruger>> LoadBrugerJsonAsync()
         {
             string BrugersJsonString = await DeserializeNotesFileAsync(BrugerListeFile);
-            return
-                (ObservableCollection<Bruger>)
-                JsonConvert.DeserializeObject(BrugersJsonString, typeof(ObservableCollection<Bruger>));
+            return(ObservableCollection<Bruger>)JsonConvert.DeserializeObject(BrugersJsonString, typeof(ObservableCollection<Bruger>));
         }
 
         #endregion
