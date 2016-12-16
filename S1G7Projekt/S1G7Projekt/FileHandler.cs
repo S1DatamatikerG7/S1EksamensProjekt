@@ -150,13 +150,13 @@ namespace S1G7Projekt
             SerializeNotesFileAsync(ChefBetalingAsJsonString, ChefBetalingFile);
         }
 
-        public static async Task<List<string>> LoadChefBetalingJsonAsync()
+        public static async Task<double[]> LoadChefBetalingJsonAsync()
         {
             string ChefBetalingJsonString = await DeserializeNotesFileAsync(ChefBetalingFile);
             return (double[])JsonConvert.DeserializeObject(ChefBetalingJsonString, typeof(double[]));
         }
 
-        #endregion //Indeholder Fejl
+        #endregion
 
 
         #region Serialization
