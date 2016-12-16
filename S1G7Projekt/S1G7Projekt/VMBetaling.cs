@@ -36,18 +36,17 @@ namespace S1G7Projekt
 
         public VMBetaling()
         {
-            double[] LoadedChefBetalingsArray;
-            LoadedChefBetalingsArray = Load();
+        }
+
+        public async void Load()
+        {
+            double[] LoadedChefBetalingsArray = await FileHandler.LoadChefBetalingJsonAsync();
+
+
             ChefBetalingMan = LoadedChefBetalingsArray[0];
             ChefBetalingTir = LoadedChefBetalingsArray[1];
             ChefBetalingOne = LoadedChefBetalingsArray[2];
             ChefBetalingTor = LoadedChefBetalingsArray[3];
-        }
-
-        public async Task<double[]> Load()
-        {
-            double[] LoadedChefBetalingsArray = await FileHandler.LoadChefBetaling();
-            return LoadedChefBetalingsArray;
 
         }
 
@@ -55,7 +54,7 @@ namespace S1G7Projekt
         public void GemChefBetaling()
         {
             double[] ChefBetalingsArray = new double[4];
-            FileHandler.SaveChefBetaling(ChefBetalingsArray);
+            FileHandler.SaveChefBetalingJsonAsync(ChefBetalingsArray);
         }
 
 

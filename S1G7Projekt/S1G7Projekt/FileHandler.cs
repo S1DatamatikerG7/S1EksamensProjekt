@@ -60,7 +60,7 @@ namespace S1G7Projekt
             SerializeNotesFileAsync(BrugerAsJsonString, BrugerListeFile);
         }
 
-        public static async Task<List<String>> LoadBrugerJsonAsync()
+        public static async Task<ObservableCollection<Bruger>> LoadBrugerJsonAsync()
         {
             string BrugersJsonString = await DeserializeNotesFileAsync(BrugerListeFile);
             return (ObservableCollection<Bruger>)JsonConvert.DeserializeObject(BrugersJsonString, typeof(ObservableCollection<Bruger>));
