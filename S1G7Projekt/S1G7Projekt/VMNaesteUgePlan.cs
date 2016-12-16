@@ -67,8 +67,9 @@ namespace S1G7Projekt
         public List<string> DagList { get; set; }
         public string Navn { get; set; }
         public int SelectedDag { get; set; }
-        public int SelectedJob { get; set; }
         public int SelectedJobType { get; set; }
+        public int SelectedItem { get; set; }
+
 
         public VMNaesteUgePlan()
         {
@@ -81,6 +82,8 @@ namespace S1G7Projekt
             JobTypeList = new List<string>();
 
             LoadAlt();
+
+            SelectedItem = -1;
 
             RetTekstBox = null;
             Navn = null;
@@ -134,16 +137,16 @@ namespace S1G7Projekt
             switch (DagList[SelectedDag])
             {
                 case "Mandag":
-                    MandagList.Add();
+                    MandagList.Add($"{ JobTypeList[SelectedJobType]}\n{Navn}");
                     break;
                 case "Tirsdag":
-                    TirsdagList.Add();
+                    TirsdagList.Add($"{ JobTypeList[SelectedJobType]}\n{Navn}");
                     break;
                 case "Onsdag":
-                    OnsdagList.Add();
+                    OnsdagList.Add($"{ JobTypeList[SelectedJobType]}\n{Navn}");
                     break;
                 case "Torsdag":
-                    TorsdagList.Add();
+                    TorsdagList.Add($"{ JobTypeList[SelectedJobType]}\n{Navn}");
                     break;
                 //default:
                 //    throw new ArgumentException("Vælg Dag");
@@ -160,16 +163,16 @@ namespace S1G7Projekt
             switch (DagList[SelectedDag])
             {
                 case "Mandag":
-                    MandagList.RemoveAt();
+                    MandagList.RemoveAt(SelectedItem);
                     break;
                 case "Tirsdag":
-                    TirsdagList.RemoveAt();
+                    TirsdagList.RemoveAt(SelectedItem);
                     break;
                 case "Onsdag":
-                    OnsdagList.RemoveAt();
+                    OnsdagList.RemoveAt(SelectedItem);
                     break;
                 case "Torsdag":
-                    TorsdagList.RemoveAt();
+                    TorsdagList.RemoveAt(SelectedItem);
                     break;
                 //default:
                 //   throw new ArgumentException("Vælg Dag");
