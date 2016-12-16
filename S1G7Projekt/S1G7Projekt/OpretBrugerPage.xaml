@@ -20,7 +20,7 @@
             <Button x:Name="Add" Content="Tilføj Bruger" HorizontalAlignment="Left" Margin="575,240,0,0" VerticalAlignment="Top" Background="#FF858585" Foreground="White" Width="100">
                 <Interactivity:Interaction.Behaviors>
                     <Core:EventTriggerBehavior EventName="Click">
-                        <Core:CallMethodAction TargetObject="{Binding RelayCommandOpretBruger}" MethodName="OpretBruger"/>
+                        <Core:CallMethodAction TargetObject="{Binding Mode=OneWay}" MethodName="OpretBruger"/>
                     </Core:EventTriggerBehavior>
                 </Interactivity:Interaction.Behaviors>
             </Button>
