@@ -118,13 +118,17 @@ namespace S1G7Projekt
                 case "Torsdag":
                     RetTorsdag = RetTekstBox;
                     break;
-                default:
-                    throw new ArgumentException("Vælg Dag");
-                    break;
-                    FileHandler.SaveRetListJsonAsync();
-            }                               //TODO: skrive til fil
+                //default:
+                //    throw new ArgumentException("Vælg Dag");
+                //    break;
+            }
+            RetList[0] = RetMandag;
+            RetList[1] = RetTirsdag;
+            RetList[2] = RetOnsdag;
+            RetList[3] = RetTorsdag;
+            FileHandler.SaveRetListJsonAsync(RetList);
         }
-                                            //TODO: for tilfoej og fjern skal laves færdigt og skrive til fil
+                                            //TODO: for tilfoej og fjern skal laves færdigt
         public void TilfoejJob()
         {
             switch (DagList[SelectedDag])
@@ -144,11 +148,11 @@ namespace S1G7Projekt
                 //default:
                 //    throw new ArgumentException("Vælg Dag");
                 //    break;
-                    FileHandler.SaveMandagJobListJsonAsync(MandagList);
-                    FileHandler.SaveTirsdagJobListJsonAsync(TirsdagList);
-                    FileHandler.SaveOnsdagJobListJsonAsync(OnsdagList);
-                    FileHandler.SaveTorsdagJobListJsonAsync(TorsdagList);
             }
+            FileHandler.SaveMandagJobListJsonAsync(MandagList);
+            FileHandler.SaveTirsdagJobListJsonAsync(TirsdagList);
+            FileHandler.SaveOnsdagJobListJsonAsync(OnsdagList);
+            FileHandler.SaveTorsdagJobListJsonAsync(TorsdagList);
         }
 
         public void FjernJob()
@@ -170,11 +174,11 @@ namespace S1G7Projekt
                 //default:
                 //   throw new ArgumentException("Vælg Dag");
                 //    break;
-                    FileHandler.SaveMandagJobListJsonAsync(MandagList);
-                    FileHandler.SaveTirsdagJobListJsonAsync(TirsdagList);
-                    FileHandler.SaveOnsdagJobListJsonAsync(OnsdagList);
-                    FileHandler.SaveTorsdagJobListJsonAsync(TorsdagList);
             }
-       }
+            FileHandler.SaveMandagJobListJsonAsync(MandagList);
+            FileHandler.SaveTirsdagJobListJsonAsync(TirsdagList);
+            FileHandler.SaveOnsdagJobListJsonAsync(OnsdagList);
+            FileHandler.SaveTorsdagJobListJsonAsync(TorsdagList);
+        }
     }
 }

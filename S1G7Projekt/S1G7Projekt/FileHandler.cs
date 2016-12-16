@@ -19,6 +19,7 @@ namespace S1G7Projekt
         private static string OnsdagJobListeFile = "OnsdagJobListe.json";
         private static string TorsdagJobListeFile = "TorsdagJobListe.json";
         private static string RetListeFile = "RetListe.json";
+        private static string ChefBetalingFile = "ChefBetaling.json";
 
 
         #region HusListe
@@ -141,6 +142,22 @@ namespace S1G7Projekt
         }
 
         #endregion
+        #region ChefBetaling
+
+        public static async void SaveChefBetalingJsonAsync(double[] ChefBetaling)
+        {
+            string ChefBetalingAsJsonString = JsonConvert.SerializeObject(ChefBetaling);
+            SerializeNotesFileAsync(ChefBetalingAsJsonString, ChefBetalingFile);
+        }
+
+        public static async Task<List<string>> LoadMChefBetalingJsonAsync()
+        {
+            string ChefBetalingJsonString = await DeserializeNotesFileAsync(ChefBetalingFile);
+            return (double[])JsonConvert.DeserializeObject(ChefBetalingJsonString, typeof(double[]));
+        }
+
+        #endregion
+
 
         #region Serialization
 
