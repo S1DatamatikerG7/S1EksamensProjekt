@@ -27,7 +27,7 @@ namespace S1G7Projekt
             Load();
         }
 
-        public async void Load()
+          public async void Load()
         {
             BrugerListe = await FileHandler.LoadBrugerJsonAsync();
         }

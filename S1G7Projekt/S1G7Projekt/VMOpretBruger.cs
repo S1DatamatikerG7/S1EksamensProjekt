@@ -64,6 +64,10 @@ namespace S1G7Projekt
         public async void LoadBrugerListe()
         {
             _brugerListe = await FileHandler.LoadBrugerJsonAsync();
+            if (_brugerListe == null)
+            {
+                _brugerListe = new ObservableCollection<Bruger>();
+            }
         }
 
         public void OpretBruger()
